@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328210127) do
+ActiveRecord::Schema.define(version: 20140328223147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20140328210127) do
   create_table "appliances", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.boolean  "is_roaster"
+    t.boolean  "is_grinder"
+    t.boolean  "is_brewer"
+    t.boolean  "is_storage_device"
     t.string   "amazon_purchase_link"
     t.string   "wiki_link"
     t.string   "photo_url"
@@ -35,9 +39,32 @@ ActiveRecord::Schema.define(version: 20140328210127) do
     t.datetime "updated_at"
   end
 
+  create_table "beans", force: true do |t|
+    t.string  "name"
+    t.boolean "is_fair_trade"
+    t.boolean "is_organically_grown"
+    t.string  "grind"
+    t.string  "roast"
+    t.string  "origin"
+    t.integer "aroma"
+    t.integer "acidity"
+    t.integer "body"
+    t.integer "flavor"
+    t.integer "aftertaste"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text    "description"
+    t.integer "user_id"
+    t.integer "recipe_id"
+    t.integer "appliance_id"
+    t.integer "bean_id"
+  end
+
   create_table "ingredients", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "bean_id"
     t.string   "amazon_purchase_link"
     t.string   "wiki_link"
     t.string   "photo_url"
@@ -71,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140328210127) do
     t.string   "title"
     t.string   "author"
     t.string   "source_url"
+    t.text     "description"
     t.decimal  "rating_self",       precision: 1, scale: 1, default: 0.0
     t.decimal  "rating_all_users",  precision: 1, scale: 1, default: 0.0
     t.integer  "prep_time"

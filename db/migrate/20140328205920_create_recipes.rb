@@ -4,6 +4,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.string      :title
       t.string      :author
       t.string      :source_url
+      t.text        :description
       t.decimal     :rating_self,
                     :precision => 1, # total number of digits
                     :scale     => 1,  # number of digits after decimal

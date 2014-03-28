@@ -46,6 +46,14 @@ recipe_drip_coffee = Recipe.create({title: "Drip Coffee", author_id: "admin", to
 recipe_instant_coffee = Recipe.create({title: "Instant Coffee", author_id: "admin", total_time: "5", multi_taskability: 2, difficulty: 1, rating_all_users: 2.0
   })
 
+recipe_vacuum_coffee = Recipe.create({
+
+  })
+
+recipe_ibrix_coffee = Recipe.create({
+
+  })
+
 
 
 
