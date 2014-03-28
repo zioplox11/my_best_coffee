@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140328210127) do
     t.string   "amazon_purchase_link"
     t.string   "wiki_link"
     t.string   "photo_url"
+    t.decimal  "rating_self",          precision: 1, scale: 1, default: 0.0
+    t.decimal  "rating_all_users",     precision: 1, scale: 1, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +49,8 @@ ActiveRecord::Schema.define(version: 20140328210127) do
     t.integer  "user_id"
     t.integer  "recipe_id"
     t.string   "restaurant_url"
+    t.decimal  "rating_self",      precision: 1, scale: 1, default: 0.0
+    t.decimal  "rating_all_users", precision: 1, scale: 1, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,8 +61,8 @@ ActiveRecord::Schema.define(version: 20140328210127) do
     t.integer  "prep_time"
     t.integer  "cooking_time"
     t.integer  "total_time"
-    t.integer  "multi_taskability"
-    t.integer  "difficulty"
+    t.integer  "multi_taskability", default: 0
+    t.integer  "difficulty",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,11 +70,14 @@ ActiveRecord::Schema.define(version: 20140328210127) do
   create_table "recipes", force: true do |t|
     t.string   "title"
     t.string   "author"
+    t.string   "source_url"
+    t.decimal  "rating_self",       precision: 1, scale: 1, default: 0.0
+    t.decimal  "rating_all_users",  precision: 1, scale: 1, default: 0.0
     t.integer  "prep_time"
     t.integer  "cooking_time"
     t.integer  "total_time"
-    t.integer  "multi_taskability"
-    t.integer  "difficulty"
+    t.decimal  "multi_taskability", precision: 1, scale: 1, default: 0.0
+    t.decimal  "difficulty",        precision: 1, scale: 1, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -79,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140328210127) do
     t.string   "name"
     t.string   "full_name"
     t.string   "email"
+    t.integer  "admin_status"
     t.string   "gender"
     t.integer  "age"
     t.date     "birthday"
