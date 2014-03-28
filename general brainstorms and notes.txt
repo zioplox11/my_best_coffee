@@ -1,0 +1,318 @@
+    create_table :users do |t|
+      t.string      :name
+      t.string      :email
+      t.integer     :age
+      t.date        :birthdate
+      t.string      :gender
+      t.string      :address_line1
+      t.string      :address_line2
+      t.string      :city
+      t.string      :state
+      t.string      :zip5
+      t.string      :zip4
+      t.string      :geolocation
+      t.string      :password_digest
+      t.text        :description_of_self
+      t.text        :description_of_coffee_self
+      # user can keep in their account their current favorite coffee shop which can override/inform the 'my best coffee' algorithm
+      t.integer     :coffee_shop_id
+      # user can keep in their account their current favorite coffee type which can override/inform the 'my best coffee' algorithm
+      t.integer     :coffee_type_id
+      # user holds in their account their previously personally selected 'my best coffee' option from the returned survey options
+      t.integer     :my_best_coffee_id
+      # user holds in their account their previous prefences when they were suggested recipes
+      t.integer     :my_preference_self_made_id
+      # user holds in their account their previous prefences when they were suggested to have someone else make the coffee
+      t.integer     :my_preference_restaurant_made_id
+      t.timestamps
+    end
+
+    create_table :my_best_coffee_selections do |t|
+      t.integer     :my_best_coffee_id
+      t.integer     :user_id
+      t.timestamps
+    end
+
+    create_table :my_preferences do |t|
+      t.string      :how_fast
+      t.string      :how_costly
+      t.string      :how_convenient
+      t.string      :how_much_ambience
+      t.string      :how_artisanal
+      t.string      :how_far_away
+      t.string      :how_noisy
+      t.string      :how_eco_friendly
+      t.string      :how_cutting_edge
+      t.string      :how_much_make_it_myself
+      t.string      :how_much_do_i_want_to_dine_in
+      t.string      :how_easy_to_prepare
+      t.string      :when_must_be_served_by
+      t.string      :how_much_time_wants_to_spend_cooking
+      t.string      :how_ranked_zagat
+      t.string      :how_ranked_yelp
+      t.string      :how_ranked_amazon
+      t.string      :how_ranked_all_users
+      # User can rate it afterward
+      t.string      :how_ranked_self
+      t.timestamps
+    end
+
+   create_table :my_kitchen_supplies do |t|
+      t.bool      :has_needed_appliances
+      t.bool      :has_needed_kitchenware_items
+      t.integer   :user_id
+      t.integer   :recipe_id
+      t.integer   :recipe_step_id
+      t.timestamps
+    end
+
+    create_table :my_best_coffees do |t|
+      t.string      :name
+      t.text        :description
+      # belongs to a user
+      t.integer     :user_id
+      # boolean for now; either it is made by self or made by a purveyor
+      t.bool        :make_it_myself
+      # based upon survey response, their current suggested coffee shop
+      t.integer     :coffee_shop_id
+      # boolean for now; if not made by self, either delivered or picked up
+      t.bool        :pick_it_up
+      # based upon survey response, their current preferred coffee type
+      t.integer     :coffee_type_id
+      t.integer     :recipe_id
+      t.timestamps
+    end
+
+    create_table :coffee_shops do |t|
+      t.string      :name
+      t.string      :address_line1
+      t.string      :address_line2
+      t.string      :city
+      t.string      :state
+      t.string      :zip5
+      t.string      :zip4
+      t.string      :geolocation
+      t.string      :zagat_rating_id
+      t.string      :yelp_rating_id
+      t.string      :user_rating_id
+      t.timestamps
+    end
+
+    # need to expand this as I figure out Yummly API
+    create_table :recipe_search_results do |t|
+      t.string      :results
+    end
+
+    create_table :zagat_ratings do |t|
+      # I need to expand this based upon what the zagat API will provide me
+      t.string      :external_url
+      t.timestamps
+    end
+
+    create_table :amazon_ratings do |t|
+      # I need to expand this based upon what the zagat API will provide me
+      t.string      :external_url
+      t.timestamps
+    end
+
+    create_table :yelp_ratings do |t|
+      # I need to expand this based upon what the yelp API will provide me
+      t.string      :external_url
+      t.timestamps
+    end
+
+    create_table :other_user__ratings do |t|
+      # I need to expand this based upon how I want to deal with other users' ratings will provide me
+      t.string      :aggregated_user_ratings
+      t.timestamps
+    end
+
+    create_table :self_ratings do |t|
+      t.string      :current_rating
+      t.integer     :user_id
+      t.timestamps
+    end
+
+    create_table :coffee_types do |t|
+      t.string      :name
+      t.text        :description
+      t.string      :photo_url
+      t.string      :video_url
+      t.timestamps
+    end
+
+    create_table :surveys do |t|
+      t.integer     :user_id
+      t.string      :survey_title
+      t.text        :survey_description
+      t.text        :survey_helpers
+      t.timestamps
+    end
+
+    create_table :survey_questions do |t|
+      t.integer     :survey_id
+      t.integer     :preference_id
+      t.string      :question
+      t.text        :question_helper
+      t.text        :question_description
+      t.timestamps
+    end
+
+    create_table :kitchen_appliances do |t|
+      t.string      :name
+      t.integer     :user_id
+      t.integer     :recipe_id
+      t.integer     :recipe_step_id
+      t.string      :amazon_rating_id
+      t.timestamps
+    end
+
+    create_table :kitchenware_items do |t|
+      t.string      :name
+      t.integer     :user_id
+      t.integer     :recipe_id
+      t.integer     :recipe_step_id
+      t.timestamps
+    end
+
+    create_table :recipes do |t|
+      t.string      :name
+      t.string      :external_url
+      t.integer     :how_long_to_complete
+      t.integer     :photo_id
+      t.integer     :video_id
+      t.timestamps
+    end
+
+    create_table :modified_recipes do |t|
+      t.string      :name
+      t.string      :external_url
+      t.integer     :how_long_to_complete
+      t.integer     :photo_id
+      t.integer     :video_id
+      t.timestamps
+    end
+
+    create_table :recipe_steps do |t|
+      t.text        :step_description
+      t.string      :step_name
+      t.integer     :how_long_to_complete
+      t.integer     :photo_id
+      t.integer     :video_id
+      t.integer     :recipe_id
+      t.timestamps
+    end
+
+    create_table :modified_recipe_steps do |t|
+      t.text        :step_description
+      t.string      :step_name
+      t.integer     :how_long_to_complete
+      t.integer     :photo_id
+      t.integer     :video_id
+      t.integer     :recipe_id
+      t.timestamps
+    end
+
+    create_table :recipe_ingedients do |t|
+      t.string      :ingredient
+      t.text        :ingredient_description
+      t.integer     :photo_id
+      t.integer     :video_id
+      t.integer     :recipe_id
+      t.integer     :recipe_step_id
+      t.timestamps
+    end
+
+    create_table :modified_recipe_ingedients do |t|
+      t.string      :ingredient
+      t.text        :ingredient_description
+      t.integer     :photo_id
+      t.integer     :video_id
+      t.integer     :recipe_id
+      t.integer     :recipe_step_id
+      t.timestamps
+    end
+
+    create_table  :my_cooking_session do |t|
+      t.integer     :recipe_id
+      t.integer     :recipe_step_id
+      t.bool        :completed
+      t.bool        :force_completed
+
+    create_table :external_photo_url do |t|
+      t.integer     :recipe_step_id
+      t.integer     :recipe_id
+      t.integer     :recipe_ingredient_id
+      t.integer     :coffee_shop_id
+      t.integer     :coffee_type_id
+      t.integer     :user_id
+      t.string      :photo_url
+      t.timestamps
+    end
+
+    create_table :internal_photos do |t|
+      t.string      :photo_url
+      t.timestamps
+    end
+
+    create_table :internal_blog do |t|
+      t.string      :title
+      t.text        :blog_body
+      t.timestamps
+    end
+
+    create_table :external_video_url do |t|
+      t.integer     :recipe_step_id
+      t.integer     :recipe_id
+      t.integer     :coffee_shop_id
+      t.integer     :coffee_type_id
+      t.integer     :user_id
+      t.string      :video_url
+      t.timestamps
+    end
+
+    create_table :recipe_collection do |t|
+      t.integer     :user_id
+      t.integer     :recipe_id
+      t.timestamps
+    end
+
+    create_table :my_best_coffee_collection do |t|
+      t.integer     :user_id
+      t.integer     :my_best_coffee_id
+      t.timestamps
+    end
+
+    create_table :coffee_shop_collection do |t|
+      t.integer     :user_id
+      t.integer     :coffee_shop_id
+      t.timestamps
+    end
+
+    create_table :coffee_type_collection do |t|
+      t.integer     :user_id
+      t.integer     :coffee_type_id
+      t.timestamps
+    end
+
+    create_table :kitchenware_collection do |t|
+      t.integer     :user_id
+      t.integer     :kitchenware_id
+      t.timestamps
+    end
+
+    create_table :kitchen_appliance_collection do |t|
+      t.integer     :user_id
+      t.integer     :kitchen_appliance_id
+      t.timestamps
+    end
+
+    create_table :current_favorites do |t|
+      t.integer     :user_id
+      t.integer     :coffee_shop_id
+      t.integer     :coffee_type_id
+      t.integer     :my_best_coffee_id
+      t.timestamps
+    end
+
+  end
