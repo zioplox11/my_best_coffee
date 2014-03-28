@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 20140328223147) do
     t.string   "author"
     t.string   "source_url"
     t.text     "description"
+    t.boolean  "is_iced"
+    t.integer  "servings"
     t.decimal  "rating_self",       precision: 1, scale: 1, default: 0.0
     t.decimal  "rating_all_users",  precision: 1, scale: 1, default: 0.0
     t.integer  "prep_time"
