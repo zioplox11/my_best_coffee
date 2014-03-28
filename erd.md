@@ -73,3 +73,4 @@
 ###Appliances_Users
 - appliance_id
 - user_id
+- timestamps
