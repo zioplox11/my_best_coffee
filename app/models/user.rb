@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :recipes
+  has_many :appliances_users
   has_many :appliances, :through => appliances_users
   has_many :my_best_coffees
   has_many :comments

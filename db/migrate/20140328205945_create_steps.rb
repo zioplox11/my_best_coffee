@@ -1,6 +1,6 @@
-class CreateRecipeSteps < ActiveRecord::Migration
+class CreateSteps < ActiveRecord::Migration
   def change
-    create_table :recipe_steps do |t|
+    create_table :steps do |t|
       t.string      :name
       t.text        :description
       t.integer     :prep_time

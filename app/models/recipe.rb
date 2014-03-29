@@ -1,9 +1,7 @@
 class Recipe < ActiveRecord::Base
   has_many :comments
   has_many :my_best_coffees
-  has_many :recipe_steps
-  has_many :ingredients, through: :recipe_steps
-  has_many :appliances, through: :recipe_steps
+  has_many :steps
   belongs_to :users
 
   validates(:title,     { :presence     => true })

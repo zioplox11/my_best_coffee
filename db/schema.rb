@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 20140329022105) do
     t.datetime "updated_at"
   end
 
-  create_table "appliances_recipe_steps", force: true do |t|
+  create_table "appliances_steps", id: false, force: true do |t|
     t.integer "appliance_id"
-    t.integer "recipe_step_id"
+    t.integer "step_id"
   end
 
-  create_table "appliances_users", force: true do |t|
+  create_table "appliances_users", id: false, force: true do |t|
     t.integer  "appliance_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140329022105) do
     t.text    "description"
     t.integer "user_id"
     t.integer "recipe_id"
-    t.integer "recipe_step_id"
+    t.integer "step_id"
     t.integer "appliance_id"
     t.integer "ingredient_id"
   end
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20140329022105) do
     t.datetime "updated_at"
   end
 
-  create_table "ingredients_recipe_steps", force: true do |t|
-    t.integer "recipe_steps_id"
+  create_table "ingredients_steps", id: false, force: true do |t|
+    t.integer "step_id"
     t.integer "ingredient_id"
   end
 
@@ -85,18 +85,6 @@ ActiveRecord::Schema.define(version: 20140329022105) do
     t.string   "restaurant_url"
     t.decimal  "rating_self",      precision: 1, scale: 1, default: 0.0
     t.decimal  "rating_all_users", precision: 1, scale: 1, default: 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "recipe_steps", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "prep_time"
-    t.integer  "cooking_time"
-    t.integer  "total_time"
-    t.integer  "multi_taskability", default: 0
-    t.integer  "difficulty",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,6 +105,18 @@ ActiveRecord::Schema.define(version: 20140329022105) do
     t.integer  "total_time"
     t.decimal  "multi_taskability", precision: 1, scale: 1, default: 0.0
     t.decimal  "difficulty",        precision: 1, scale: 1, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "steps", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "prep_time"
+    t.integer  "cooking_time"
+    t.integer  "total_time"
+    t.integer  "multi_taskability", default: 0
+    t.integer  "difficulty",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

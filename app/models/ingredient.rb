@@ -1,6 +1,6 @@
 class Ingredient < ActiveRecord::Base
-  has_many :recipe_steps, :through => ingredients_recipe_steps
-  has_many :recipes, :through => recipe_steps
+  has_many :ingredients_steps
+  has_many :steps, :through => ingredients_steps
   has_many :comments
 
   validates(:name,     { :presence     => true })
