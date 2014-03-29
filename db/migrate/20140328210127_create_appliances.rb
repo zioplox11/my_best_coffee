@@ -3,10 +3,7 @@ class CreateAppliances < ActiveRecord::Migration
     create_table :appliances do |t|
       t.string      :name
       t.text        :description
-      t.boolean     :is_roaster
-      t.boolean     :is_grinder
-      t.boolean     :is_brewer
-      t.boolean     :is_storage_device
+      t.string      :type
       t.string      :amazon_purchase_link
       t.string      :wiki_link
       t.string      :photo_url

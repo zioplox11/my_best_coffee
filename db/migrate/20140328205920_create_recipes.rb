@@ -2,8 +2,10 @@ class CreateRecipes < ActiveRecord::Migration
   def change
     create_table :recipes do |t|
       t.string      :title
+      t.integer     :user_id
       t.string      :author
       t.string      :source_url
+      t.string      :photo_url
       t.text        :description
       t.boolean     :is_iced
       t.integer     :servings

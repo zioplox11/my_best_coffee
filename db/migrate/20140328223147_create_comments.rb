@@ -4,8 +4,9 @@ class CreateComments < ActiveRecord::Migration
       t.text        :description
       t.integer     :user_id
       t.integer     :recipe_id
+      t.integer     :recipe_step_id
       t.integer     :appliance_id
-      t.integer     :bean_id
+      t.integer     :ingredient_id
     end
   end
 end

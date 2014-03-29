@@ -7,9 +7,9 @@
 - gender
 - email
 - password_digest
-- has many recipes through recipes_users
+- has many recipes
 - has many appliances through appliance_users
-- has many recommendations
+- has many my_best_coffees
 - timestamps
 
 
@@ -22,7 +22,7 @@
 - photo_url
 - has many recipe_steps
 - has many ingredients through recipe_steps
-- has many users through recipes_users
+- belongs to users
 - has many appliances through recipe_steps
 - timestamps
 
@@ -35,7 +35,7 @@
 - wiki_link
 - photo_url
 - has many recipe_steps
-- has many recipes through recipe_steps
+- belongs to recipes through recipe_steps
 - timestamps
 
 
@@ -50,7 +50,7 @@
 - timestamps
 
 
-###Recommendations
+###My Best Coffees
 - id
 - recipe_id
 - restaurant_url (default to YELP)
@@ -74,3 +74,11 @@
 - appliance_id
 - user_id
 - timestamps
+
+###Comments
+- user_id
+- description
+- appliance_id
+- recipe_id
+- ingredient_id
+- time_stamps
