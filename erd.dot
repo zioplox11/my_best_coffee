@@ -17,11 +17,11 @@ m_Appliance [label = <<table border="0" align="center" cellspacing="0.5" cellpad
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
   <tr><td align="left" width="130" port="amazon_purchase_link">amazon_purchase_link <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
   <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="photo_url">photo_url <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
-  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
   <tr><td align="left" width="130" port="section">section <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="wiki_link">wiki_link <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
@@ -32,6 +32,10 @@ m_Comment [label = <<table border="0" align="center" cellspacing="0.5" cellpaddi
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
   <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+</table>
+>];
+m_Commentable [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Commentable</font></td></tr>
 </table>
 >];
 m_Ingredient [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -53,8 +57,8 @@ m_Ingredient [label = <<table border="0" align="center" cellspacing="0.5" cellpa
   <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="origin">origin <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="photo_url">photo_url <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
-  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
   <tr><td align="left" width="130" port="roast">roast <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="section">section <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="wiki_link">wiki_link <font face="Arial Italic" color="grey60">string</font></td></tr>
@@ -69,8 +73,8 @@ m_Mybestcoffee [label = <<table border="0" align="center" cellspacing="0.5" cell
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
-  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
   <tr><td align="left" width="130" port="restaurant_url">restaurant_url <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
@@ -82,13 +86,13 @@ m_Recipe [label = <<table border="0" align="center" cellspacing="0.5" cellpaddin
   <tr><td align="left" width="130" port="author">author <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="cooking_time">cooking_time <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
-  <tr><td align="left" width="130" port="difficulty">difficulty <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="difficulty">difficulty <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
   <tr><td align="left" width="130" port="is_iced">is_iced <font face="Arial Italic" color="grey60">boolean</font></td></tr>
-  <tr><td align="left" width="130" port="multi_taskability">multi_taskability <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="multi_taskability">multi_taskability <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
   <tr><td align="left" width="130" port="photo_url">photo_url <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="prep_time">prep_time <font face="Arial Italic" color="grey60">integer</font></td></tr>
-  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
-  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (2,1)</font></td></tr>
   <tr><td align="left" width="130" port="servings">servings <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="source_url">source_url <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
@@ -129,11 +133,8 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_Appliance -> m_Inventory [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Appliance -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
   m_Appliance -> m_Step [arrowhead = "normal", arrowtail = "normal", weight = "2"];
-  m_Appliance -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_User -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Recipe -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
-  m_Step -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
-  m_Ingredient -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Ingredient -> m_Recipe [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
   m_Ingredient -> m_Step [arrowhead = "normal", arrowtail = "normal", weight = "2"];
   m_User -> m_Inventory [arrowhead = "normal", arrowtail = "none", weight = "2"];

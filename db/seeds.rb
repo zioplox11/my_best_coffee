@@ -8,6 +8,7 @@
 
 User.delete_all
 Recipe.delete_all
+Step.delete_all
 Appliance.delete_all
 Ingredient.delete_all
 

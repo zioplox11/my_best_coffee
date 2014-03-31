@@ -59,7 +59,7 @@ group :development, :test do
 # https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers'
 # support with creating ERD drawings
-  gem "rails-erd"
+  gem 'rails-erd', '~> 1.1.0'
 # improves my ability to annotate my model.
 
 

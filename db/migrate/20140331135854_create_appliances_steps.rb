@@ -6,5 +6,3 @@ class CreateAppliancesSteps < ActiveRecord::Migration
     end
   end
 end
-
-

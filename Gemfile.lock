@@ -152,7 +152,7 @@ DEPENDENCIES
   pg
   pry-rails
   rails (= 4.0.4)
-  rails-erd
+  rails-erd (~> 1.1.0)
   rspec-rails
   sass-rails (~> 4.0.2)
   sdoc

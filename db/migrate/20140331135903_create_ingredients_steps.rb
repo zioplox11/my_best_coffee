@@ -6,3 +6,5 @@ class CreateIngredientsSteps < ActiveRecord::Migration
     end
   end
 end
+
+
