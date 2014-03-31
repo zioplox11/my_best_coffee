@@ -1,0 +1,144 @@
+digraph MyBestCoffee {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+label = "MyBestCoffee domain model\n\n";
+m_Appliance [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Appliance</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="amazon_purchase_link">amazon_purchase_link <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="photo_url">photo_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="section">section <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="wiki_link">wiki_link <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Comment [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Comment</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+</table>
+>];
+m_Ingredient [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ingredient</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="acidity">acidity <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="aftertaste">aftertaste <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="amazon_purchase_link">amazon_purchase_link <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="aroma">aroma <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="body">body <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="flavor">flavor <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="grind">grind <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="is_bean">is_bean <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="is_fair_trade">is_fair_trade <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="is_organically_grown">is_organically_grown <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="origin">origin <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="photo_url">photo_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="roast">roast <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="section">section <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="wiki_link">wiki_link <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Inventory [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Inventory</font></td></tr>
+</table>
+>];
+m_Mybestcoffee [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Mybestcoffee</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="restaurant_url">restaurant_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Recipe [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Recipe</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="author">author <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="cooking_time">cooking_time <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="difficulty">difficulty <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="is_iced">is_iced <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="multi_taskability">multi_taskability <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="photo_url">photo_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="prep_time">prep_time <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="rating_all_users">rating_all_users <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="rating_self">rating_self <font face="Arial Italic" color="grey60">decimal (1,1)</font></td></tr>
+  <tr><td align="left" width="130" port="servings">servings <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="source_url">source_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="total_time">total_time <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_Step [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Step</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="cooking_time">cooking_time <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="difficulty">difficulty <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="multi_taskability">multi_taskability <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="prep_time">prep_time <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="total_time">total_time <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="admin_status">admin_status <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="age">age <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="birthday">birthday <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="full_name">full_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="gender">gender <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="password_digest">password_digest <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="photo_url">photo_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Appliance -> m_Inventory [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Appliance -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_Appliance -> m_Step [arrowhead = "normal", arrowtail = "normal", weight = "2"];
+  m_Appliance -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Recipe -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Step -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Ingredient -> m_Comment [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Ingredient -> m_Recipe [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_Ingredient -> m_Step [arrowhead = "normal", arrowtail = "normal", weight = "2"];
+  m_User -> m_Inventory [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Mybestcoffee [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Recipe -> m_Mybestcoffee [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Recipe -> m_Step [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Recipe [arrowhead = "normal", arrowtail = "none", weight = "2"];
+}

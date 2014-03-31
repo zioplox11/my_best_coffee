@@ -1,11 +1,14 @@
 class Ingredient < ActiveRecord::Base
-  has_many :ingredients_steps
-  has_many :steps, :through => ingredients_steps
-  has_many :comments
+
+  has_many :recipes, through: :steps
+
+  # has_many :comments, :as => :commentable
+
+  has_and_belongs_to_many :steps
 
   validates(:name,     { :presence     => true })
   validates(:is_bean,     { :presence     => true })
-  validates(:type,     { :presence     => true })
+  validates(:description,     { :presence     => true })
 
 end
 

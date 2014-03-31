@@ -1,0 +1,23 @@
+<article>
+<h1>Let's make sure you prepare very your best cup of coffee</h1>
+
+<h2>You can choose a hand-picked recipe for any of these popular coffee production methods by clicking one of the images below.</h2>
+
+<p id="p2">NOTE: If you would like us to help you pick the perfect recipe for you by gathering some information about your current situation, click <a href="/users/new">here</a> to begin.</p>
+
+</article>
+
+<% @recipes.each do |recipe| %>
+<ul>
+  <a href="recipes/<%= recipe.id %>"><img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>" width="364" height="364"></a>
+  <br>
+  <a href="recipes/<%= recipe.id %>"><%= recipe.title %></a>
+</ul>
+
+<br>  <br>
+<% end %>
+
+
+
+
+

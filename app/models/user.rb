@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   has_many :recipes
-  has_many :appliances_users
-  has_many :appliances, :through => appliances_users
-  has_many :my_best_coffees
+  has_many :inventories
+  has_many :appliances, through: :inventories
+  has_many :mybestcoffees
+  # has_many :comments, :as => :commentable
   has_many :comments
+
 
   has_secure_password
 

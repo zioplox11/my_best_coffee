@@ -1,10 +1,11 @@
 class Step < ActiveRecord::Base
-  has_many :appliances_steps
-  has_many :appliances, :through => appliances_steps
-  has_many :ingredients_steps
-  has_many :ingredients, :through => ingredients_steps
-  belongs_to :recipes
-  has_many :comments
+  has_and_belongs_to_many :appliances
+
+  has_and_belongs_to_many :ingredients
+
+  # has_many :comments, :as => :commentable
+
+  belongs_to :recipe
 
   validates(:name,     { :presence     => true })
   validates(:total_time,     { :presence     => true })

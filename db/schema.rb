@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329022105) do
+ActiveRecord::Schema.define(version: 20140331033823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20140329022105) do
   create_table "appliances", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "type"
+    t.string   "section"
     t.string   "amazon_purchase_link"
     t.string   "wiki_link"
     t.string   "photo_url"
-    t.decimal  "rating_self",          precision: 1, scale: 1, default: 0.0
-    t.decimal  "rating_all_users",     precision: 1, scale: 1, default: 0.0
+    t.decimal  "rating_self",          precision: 2, scale: 1, default: 0.0
+    t.decimal  "rating_all_users",     precision: 2, scale: 1, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,25 +34,18 @@ ActiveRecord::Schema.define(version: 20140329022105) do
     t.integer "step_id"
   end
 
-  create_table "appliances_users", id: false, force: true do |t|
-    t.integer  "appliance_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "commentables", force: true do |t|
   end
 
   create_table "comments", force: true do |t|
     t.text    "description"
-    t.integer "user_id"
     t.integer "recipe_id"
-    t.integer "step_id"
-    t.integer "appliance_id"
-    t.integer "ingredient_id"
+    t.integer "user_id"
   end
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "section"
     t.text     "description"
     t.boolean  "is_bean"
     t.string   "amazon_purchase_link"
@@ -68,8 +61,8 @@ ActiveRecord::Schema.define(version: 20140329022105) do
     t.integer  "body"
     t.integer  "flavor"
     t.integer  "aftertaste"
-    t.decimal  "rating_self",          precision: 1, scale: 1, default: 0.0
-    t.decimal  "rating_all_users",     precision: 1, scale: 1, default: 0.0
+    t.decimal  "rating_self",          precision: 2, scale: 1, default: 0.0
+    t.decimal  "rating_all_users",     precision: 2, scale: 1, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -79,12 +72,19 @@ ActiveRecord::Schema.define(version: 20140329022105) do
     t.integer "ingredient_id"
   end
 
-  create_table "my_best_coffees", force: true do |t|
+  create_table "inventories", id: false, force: true do |t|
+    t.integer  "appliance_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mybestcoffees", force: true do |t|
     t.integer  "user_id"
     t.integer  "recipe_id"
     t.string   "restaurant_url"
-    t.decimal  "rating_self",      precision: 1, scale: 1, default: 0.0
-    t.decimal  "rating_all_users", precision: 1, scale: 1, default: 0.0
+    t.decimal  "rating_self",      precision: 2, scale: 1, default: 0.0
+    t.decimal  "rating_all_users", precision: 2, scale: 1, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,26 +92,27 @@ ActiveRecord::Schema.define(version: 20140329022105) do
   create_table "recipes", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.string   "author"
+    t.string   "author",                                    default: "No author attributed"
     t.string   "source_url"
     t.string   "photo_url"
-    t.text     "description"
+    t.text     "description",                               default: "No description given"
     t.boolean  "is_iced"
     t.integer  "servings"
-    t.decimal  "rating_self",       precision: 1, scale: 1, default: 0.0
-    t.decimal  "rating_all_users",  precision: 1, scale: 1, default: 0.0
+    t.decimal  "rating_self",       precision: 2, scale: 1, default: 0.0
+    t.decimal  "rating_all_users",  precision: 2, scale: 1, default: 0.0
     t.integer  "prep_time"
     t.integer  "cooking_time"
     t.integer  "total_time"
-    t.decimal  "multi_taskability", precision: 1, scale: 1, default: 0.0
-    t.decimal  "difficulty",        precision: 1, scale: 1, default: 0.0
+    t.decimal  "multi_taskability", precision: 2, scale: 1, default: 0.0
+    t.decimal  "difficulty",        precision: 2, scale: 1, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "steps", force: true do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "description",       default: "No description provided"
+    t.integer  "recipe_id"
     t.integer  "prep_time"
     t.integer  "cooking_time"
     t.integer  "total_time"
@@ -122,10 +123,10 @@ ActiveRecord::Schema.define(version: 20140329022105) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "name",            default: "No name given"
     t.string   "full_name"
     t.string   "email"
-    t.integer  "admin_status"
+    t.integer  "admin_status",    default: 0
     t.string   "gender"
     t.integer  "age"
     t.date     "birthday"

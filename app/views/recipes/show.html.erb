@@ -1,0 +1,44 @@
+<h2><a href="/users/index">Home</a></h2>
+
+<h1>Recipe: <%= @recipe.title %></h1>
+<h2>Total time to prepare and serve: <%= @total_time %> minutes</h2>
+
+
+  <img src="<%= @recipe.photo_url %>" alt="<%= @recipe.title %>" width="364" height="364">
+
+
+
+<h2>Originally written by: <%= @recipe.author %></h2>
+
+<h3>Uploaded by: <%= @recipe.user.name %> on <%= @recipe.user.created_at %></h3>
+<br>
+
+<p id="p2"><strong>About this recipe: </strong><%= @recipe.description %></p>
+
+<br>
+
+<h2> Appliances and kitchenware needed: </h2>
+    <% @recipe.steps.each do |step| %>
+      <% step.appliances.each do |appliance| %>
+        <p><%= appliance.name %>&nbsp;&nbsp;&nbsp;<a href="<%= appliance.amazon_purchase_link %>">Buy on Amazon Now!</a></p>
+      <% end %>
+    <% end %>
+<br>
+<h2> Directions </h2>
+
+<h2> Ingredients </h2>
+    <% @recipe.steps.each do |step| %>
+      <% step.ingredients.each do |ingredient| %>
+        <p id="p2"><%= ingredient.name %>&nbsp;&nbsp;&nbsp;<a href="<%= ingredient.amazon_purchase_link %>">Buy on Amazon Now!</a></p>
+      <% end %>
+    <% end %>
+<br>
+<% @recipe.steps.each do |step| %>
+  <p><%= step.name %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= step.total_time %> min to complete
+  <br>
+  <strong><%= step.description %></strong></p>
+  <br>
+<% end %>
+
+
+

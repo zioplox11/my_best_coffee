@@ -1,5 +1,7 @@
 require 'spec_helper'
 
-# describe MyBestCoffee do
+describe Mybestcoffee do
+  it { should belong_to(:user) }
+  it { should belong_to(:recipe) }
+end
 
-# end

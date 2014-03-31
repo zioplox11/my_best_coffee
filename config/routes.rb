@@ -3,7 +3,27 @@ MyBestCoffee::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
+
+  resources   :users
+  resources   :mybestcoffees
+  resources   :recipes
+
+  resources :appliances do
+  resources :comments
+end
+
+  resources :steps do
+  resources :comments
+end
+
+  resources :recipes do
+  resources :comments
+end
+
+  resources :ingredients do
+  resources :comments
+end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
