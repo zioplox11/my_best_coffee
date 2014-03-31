@@ -1,21 +1,8 @@
-<article>
-<h1>Let's make sure you prepare very your best cup of coffee</h1>
+<% if logged_in? %>
 
-<p id="p2">You can try a great recipe using a popular coffee brewing method by clicking an image below.
-<br><br>
-If you would like us to tailor the perfect recipe for you by gathering information about your current situation, click <a href="/users/new">here</a> to begin.</p>
+<a href="/logout"> Logout</a>
 
-</article>
-
-<% @recipes.each do |recipe| %>
-<ul>
-  <a href="recipes/<%= recipe.id %>"><img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>" width="364" height="364"></a>
-  <br>
-  <a href="recipes/<%= recipe.id %>"><%= recipe.title %></a>
-</ul>
-
-<br>  <br>
-<% end %>
+<h1>Hi, <%= current_user.name %>!</h1>
 
 
 

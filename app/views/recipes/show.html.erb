@@ -1,7 +1,7 @@
-<h2><a href="/users/index">Home</a></h2>
+<h2><a href="/recipes/">Home</a></h2>
 
 <h1>Recipe: <%= @recipe.title %></h1>
-<h2>Total time to prepare and serve: <%= @total_time %> minutes</h2>
+<h2>Total time to prepare and serve: <%= @recipe.total_step_time %> minutes</h2>
 
 
   <img src="<%= @recipe.photo_url %>" alt="<%= @recipe.title %>" width="364" height="364">

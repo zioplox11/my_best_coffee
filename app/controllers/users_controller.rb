@@ -1,15 +1,10 @@
 class UsersController < ApplicationController
   def index
-    if params[:who_makes_coffee] == "Someone else"
-      redirect_to("http://www.findmecoffee.com/")
-    else
-      @recipes = Recipe.all
-      render
-    end
+      @users = User.all
   end
 
   def show
-    redirect_to("/users")
+    @user = current_user
   end
 
   def new
@@ -18,8 +13,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    if @user.name == nil
+      @user.name = "No name provided"
+    end
+
     if @user.save
-      redirect_to("/mybestcoffees")
+      session[:user_id] = @user.id
+      redirect_to("/users/index")
     else
       # render the new.html.erb file with @user
       render :new

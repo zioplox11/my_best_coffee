@@ -1,1 +1,24 @@
-<p>Thanks for signing up, <%= @user.name %></p>
+<%= flash[:notice] %>
+
+<p>Click  <a href="/recipes/">here</a> to skip these questions and browse all approved recipes</p>
+
+<p>Answer these questions start finding your best coffee.</p>
+<br> <br>
+<form name="learning_about_user" action="/users" method="get">
+  <h1>What's your time frame?</h1>
+<p><input type="checkbox" name="time_frame" value="I'm in a huge hurry">I'm in a huge hurry<br>
+<input type="checkbox" name="time_frame" value="I've got some time">I've got some time</p>
+<br><br><br>
+<h1>What's your cash flow?</h1>
+<p><input type="checkbox" name="spending" value="I want a cheap cup of joe">I want a cheap cup of joe<br><input type="checkbox" name="spending" value="I'm up to spend some cash">I'm up to spend some cash
+</p>
+<br><br><br>
+<h1>Make a simple cup or coffee as art?</h1>
+<p><input type="checkbox" name="spending" value="Let's keep it simple">Let's keep it simple<br>
+<input type="checkbox" name="spending" value="Full-on culinary experience">Full on culinary experience!
+</p>
+<br><br><br>
+<input type="submit" name="test" value="Submit">
+</form>
+
+

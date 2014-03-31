@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(version: 20140331135903) do
   create_table "recipes", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.string   "author",                                    default: "No author attributed"
+    t.string   "author"
     t.string   "source_url"
     t.string   "photo_url"
-    t.text     "description",                               default: "No description given"
+    t.text     "description"
     t.boolean  "is_iced"
     t.integer  "servings"
     t.decimal  "rating_self",       precision: 2, scale: 1, default: 0.0

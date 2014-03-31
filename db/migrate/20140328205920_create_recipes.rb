@@ -3,12 +3,12 @@ class CreateRecipes < ActiveRecord::Migration
     create_table :recipes do |t|
       t.string      :title
       t.integer     :user_id
-      t.string      :author,
-                    :default => "No author attributed"
+      t.string      :author
+                    # :default => "No author attributed"
       t.string      :source_url
       t.string      :photo_url
-      t.text        :description,
-                    :default   => "No description given"
+      t.text        :description
+                    # :default   => "No description given"
       t.boolean     :is_iced
       t.integer     :servings
       t.decimal     :rating_self,

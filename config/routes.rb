@@ -9,6 +9,12 @@ MyBestCoffee::Application.routes.draw do
   resources   :mybestcoffees
   resources   :recipes
 
+
+  get  "/session/new"  => "session#new"
+  post "/session"      => "session#create"
+  get  "/logout"       => "session#destroy"
+
+
   resources :appliances do
   resources :comments
 end

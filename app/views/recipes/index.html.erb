@@ -1,0 +1,63 @@
+<% if logged_in? %><br>
+  <% if current_user.recipes.empty? %>
+    <p>You have no recipes in your recipe box.</p>
+  <% else %>
+    <% if current_user.recipes.length == 1 %>
+      <p>You have <%= current_user.recipes.length %> recipe in your recipe box.</p>
+    <% elsif current_user.recipes.length > 1 %>
+      <p>You have <%= current_user.recipes.length %> recipes in your recipe box.</p>
+    <% end %><br>
+
+    <h2><%= current_user.name %>'s Recipe Box
+        <% current_user.recipes.each do |recipe| %>
+          <p>"<%= recipe.title %>": <a href="/recipes/<%= recipe.id %>">Click to load.</a></p>
+          <% end %></h2>
+
+    <p id="p2">Another option is to create and post a recipe of your own to your recipe box.  <br>
+      <%= link_to "Create A New Recipe", new_recipe_path %></p>
+
+  <br><% end %>
+
+  <a href="/logout">Click to logout</a><br><br>
+
+<% end %>
+
+<h2>Ok, let's make sure you get very your best cup of coffee<% if !logged_in? %>.<% else %>, <%= current_user.name %>.<% end %> </h2>
+
+<% if !logged_in? %>
+<p id="p2">If you would like us to tailor a perfect recipe for you, including helping you shop for the items you need and showing you step-by-step how to prepare your coffee, you need to log in to your My Best Coffee account.</p>
+</br>
+
+<p id="p2">Already a registered user? <a href="/session/new">Login here</a> to get started creating your best coffee experience.</p><br>
+
+<p id="p2">Or you can <a href="/users/new">click here to sign up</a> for your own free My Best Coffee user account.</p>
+</br></br>
+
+<% end %>
+
+<% if logged_in? %>
+<p>Click <a href="/mybestcoffees">here</a> to begin a guided journey.</p>
+<br><br>
+<% end %>
+
+<% if logged_in? %>
+
+  <p id="p2">You can add a great recipe to your own recipe box by clicking on any brewing method pictured below.</p>
+<% end %>
+
+<% if !logged_in?  %>
+  <p id="p2">If you're just browsing today, you can always try out one of our great recipes for popular coffee brewing methods by clicking an any image below.</p>
+<% end %>
+
+
+
+
+<% @recipes.each do |recipe| %>
+<ul>
+  <a href="recipes/<%= recipe.id %>"><img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>" width="364" height="364"></a>
+  <br>
+  <a href="recipes/<%= recipe.id %>"><%= recipe.title %></a>
+</ul>
+
+<br>  <br>
+<% end %>

@@ -28,12 +28,27 @@ class Recipe < ActiveRecord::Base
   has_many :mybestcoffees
   has_many :steps
   has_many :ingredients, through: :steps
+  has_many :appliances, through: :steps
   belongs_to :user
 
   validates(:title,     { :presence     => true })
   validates(:total_time,     { :presence     => true })
-  validates(:author,     { :presence     => true })
-  validates(:description,     { :presence     => true })
+  # validates(:author,     { :presence     => true })
+  # validates(:description,     { :presence     => true })
+
+
+
+  def total_step_time()
+    if self.steps.length == 0
+      return total_step_time = self.total_time
+    else
+      total_step_time = 0
+      self.steps.each do |step|
+        total_step_time += step.total_time
+      end
+      return total_step_time
+    end
+  end
 
 
 end

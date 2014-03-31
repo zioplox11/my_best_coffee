@@ -1,0 +1,32 @@
+<h1>Add a new Best Coffee Recipe</h1>
+
+<% @recipe.errors.messages.each do |attr, message| %>
+  <p>error on <%= attr %><%= message %></p>
+<% end %>
+
+<%= form_for @recipe do |f| %>
+
+  <%= f.label(:title) %>
+  <%= f.text_field(:title) %>
+  <%= f.label(:author) %>
+  <%= f.text_field(:author) %>
+  <%= f.label(:description) %>
+  <%= f.text_field(:description) %>
+  <%= f.label(:photo_url) %>
+  <%= f.text_field(:photo_url) %>
+  <%= f.label(:source_url) %>
+  <%= f.text_field(:source_url) %>
+  <%= f.label(:total_time) %>
+  <%= f.number_field(:total_time) %>
+
+  <%= f.submit %>
+<% end %>
+
+<!--
+#  is_iced           :boolean
+#  servings          :integer
+#  rating_self       :decimal(2, 1)    default(0.0)
+#  rating_all_users  :decimal(2, 1)    default(0.0)
+#  multi_taskability :decimal(2, 1)    default(0.0)
+#  difficulty        :decimal(2, 1)    default(0.0)
+ -->

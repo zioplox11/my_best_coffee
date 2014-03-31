@@ -1,8 +1,8 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string      :name,
-                    :default    => "No name given"
+      t.string      :name
+                    # :default    => "No name given"
       t.string      :full_name
       t.string      :email
       t.integer     :admin_status, default: 0
