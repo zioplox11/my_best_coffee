@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id                :integer          not null, primary key
+#  title             :string(255)
+#  user_id           :integer
+#  author            :string(255)      default("No author attributed")
+#  source_url        :string(255)
+#  photo_url         :string(255)
+#  description       :text             default("No description given")
+#  is_iced           :boolean
+#  servings          :integer
+#  rating_self       :decimal(2, 1)    default(0.0)
+#  rating_all_users  :decimal(2, 1)    default(0.0)
+#  prep_time         :integer
+#  cooking_time      :integer
+#  total_time        :integer
+#  multi_taskability :decimal(2, 1)    default(0.0)
+#  difficulty        :decimal(2, 1)    default(0.0)
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
 class Recipe < ActiveRecord::Base
   # has_many :comments, :as => :commentable
   has_many :comments

@@ -54,10 +54,14 @@ group :development, :test do
   gem 'pry-rails'
 # command line tool. run `$ annotate`. annotates models with schema data
 # https://github.com/ctran/annotate_models
-  gem 'annotate'
+  gem 'annotate', '>=2.6.0'
 # one liners to test common rails functionality
 # https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers'
 # support with creating ERD drawings
-    gem "rails-erd"
+  gem "rails-erd"
+# improves my ability to annotate my model.
+
+
+
 end

@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id          :integer          not null, primary key
+#  description :text
+#  recipe_id   :integer
+#  user_id     :integer
+#
+
 require 'spec_helper'
 
 describe Comment do
