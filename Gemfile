@@ -44,6 +44,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rails_12factor', group: :production
 
 group :development, :test do
 # rspec for rails. set up with `rails g rpsec:install`
