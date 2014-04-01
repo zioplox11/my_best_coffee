@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to("/users/index")
+      redirect_to("/recipes/")
     else
       # render the new.html.erb file with @user
       render :new
