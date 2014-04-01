@@ -14,7 +14,6 @@
 
 body {
     background-color: rgba(10,140,90,.06);
-
 }
 
 .container {
@@ -132,7 +131,10 @@ h1 {
 font-size: 30px;
 padding: 5px;
 }
+
 li {
 padding: 5px;
 display: block;
+}
+
 }
