@@ -12,17 +12,6 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
-
-
-   amazon = "http://webservices.amazon.com/onca/xml?
-Service=AWSECommerceService&AWSAccessKeyId=AKIAJBYQLHPMVQIZ3DQQ&Operation=ItemSearch&Keywords=Chemex&SearchIndex=Appliances&Signature=[Request Signature]&Timestamp=[YYYY-MM-DDThh:mm:ssZ]"
-
-&Signature=[Request Signature]
-
-  # @recipe.steps.update(amazon_purchase_link: amazon)
-
-  redirect_to(amazon)
-
   end
 
 
