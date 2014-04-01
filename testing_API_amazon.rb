@@ -6,7 +6,7 @@ part_of_store = "Appliances"
 
 def amazon_look_up_item(keywords, part_of_store)
 
-accesskey = "AWSAccessKeyId=" + AMAZON_API_AWS_ACCESS_KEY_ID
+accesskey = "AWSAccessKeyId=" + ENV['AMAZON_API_AWS_ACCESS_KEY_ID']
 operation = "Operation=" + "ItemSearch"
 keywords = "Keywords=" + keywords
 searchindex = "SearchIndex=" + part_of_store
@@ -34,7 +34,7 @@ new_array.map! do |frog| frog[1][0] end
 my_crazy_string = new_array.join("&")
 
 #building HMAC crazy secret signature
-secret_id = AMAZON_SECRET_ACCESS_KEY
+secret_id = ENV['AMAZON_SECRET_ACCESS_KEY']
 
 next_step = "GET\nwebservices.amazon.com\n/onca/xml\n#{my_crazy_string}"
 
