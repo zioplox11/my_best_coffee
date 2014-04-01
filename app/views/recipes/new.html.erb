@@ -1,4 +1,13 @@
 <a href="/">Back to the start</a>
-<h1><%= @recipe.title %></h1>
+
+<% if logged_in? %>
+
+  <a href="/logout">Click to logout</a><br><br>
+
+<% end %>
+
+<h1><%= current_user.name %>, Add new recipe here</h1>
 
 <%= render 'form' %>
+
+

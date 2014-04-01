@@ -37,6 +37,8 @@
   <p><%= step.name %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= step.total_time %> min to complete
   <br>
   <strong><%= step.description %></strong></p>
+
+  <%= link_to "Full Preparation Details and Timer", recipe_step_path(@recipe, step) %><br>
   <br>
 <% end %>
 

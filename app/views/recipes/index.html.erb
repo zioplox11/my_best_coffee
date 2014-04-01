@@ -51,12 +51,12 @@
 
 
 
-
+<%# recipes = Recipe.admin_approved_recipes %>
 <% @recipes.each do |recipe| %>
 <ul>
-  <a href="recipes/<%= recipe.id %>"><img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>" width="364" height="364"></a>
+  <a href="/recipes/<%= recipe.id %>"><img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>" width="364" height="364"></a>
   <br>
-  <a href="recipes/<%= recipe.id %>"><%= recipe.title %></a>
+  <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>
 </ul>
 
 <br>  <br>

@@ -12,6 +12,17 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
+
+
+   amazon = "http://webservices.amazon.com/onca/xml?
+Service=AWSECommerceService&AWSAccessKeyId=AKIAJBYQLHPMVQIZ3DQQ&Operation=ItemSearch&Keywords=Chemex&SearchIndex=Appliances&Signature=[Request Signature]&Timestamp=[YYYY-MM-DDThh:mm:ssZ]"
+
+&Signature=[Request Signature]
+
+  # @recipe.steps.update(amazon_purchase_link: amazon)
+
+  redirect_to(amazon)
+
   end
 
 
@@ -37,6 +48,18 @@ class RecipesController < ApplicationController
       # render the new.html.erb file with @recipe
       render :new
     end
+
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def destroy
+    recipe = Recipe.find_by(id: params[:id])
+    # http://api.rubyonrails.org/classes/ActiveRecord/Relation.html#method-i-destroy
+    recipe.destroy
+    redirect_to("/")
+  end
 
   end
 

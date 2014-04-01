@@ -24,7 +24,7 @@ end
 end
 
   resources :recipes do
-  resources :comments
+  resources :comments, :steps
 end
 
   resources :ingredients do

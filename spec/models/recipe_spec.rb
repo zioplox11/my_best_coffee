@@ -5,10 +5,10 @@
 #  id                :integer          not null, primary key
 #  title             :string(255)
 #  user_id           :integer
-#  author            :string(255)      default("No author attributed")
+#  author            :string(255)
 #  source_url        :string(255)
 #  photo_url         :string(255)
-#  description       :text             default("No description given")
+#  description       :text
 #  is_iced           :boolean
 #  servings          :integer
 #  rating_self       :decimal(2, 1)    default(0.0)

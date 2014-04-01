@@ -32,5 +32,18 @@ class User < ActiveRecord::Base
   validates(:admin_status,     { :presence     => true })
   validates(:email,    { :uniqueness   => { case_sensitive: false }})
 
+  def self.show_all_names_and_emails
+    users = User.all
+    names = []
+    emails = []
+    name_and_emails=[]
+    users.each do |user|
+      name_and_emails << user.name
+      name_and_emails << user.email
+      display = name_and_emails.join(", ")
+    end
+    name_and_emails
+  end
+
 
 end
