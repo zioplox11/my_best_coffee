@@ -15,22 +15,15 @@ class RecipesController < ApplicationController
 
     @recipe = Recipe.find_by(id: params[:id])
 
-    if logged_in?
-      recipe = @recipe.dup
-      if current_user.recipes << recipe
-        flash[:notice] = "You are viewing the main recipe page, #{current_user.name}. You have also added this recipe to your own recipe box."
-      render
-      end
-    end
-
-    render
-
+    return render
 
   end
 
 
   def new
+
     @recipe = Recipe.new()
+
   end
 
 
@@ -54,7 +47,14 @@ class RecipesController < ApplicationController
 
 
   def edit
-    @recipe = Recipe.find(params[:id])
+
+      recipe = Recipe.find_by(id: params[:id])
+      recipe = @recipe.dup
+      if (current_user.recipes << recipe)
+        flash[:notice] = "You are currently viewing the ORIGINAL recipe page, #{current_user.name}. You have ALSO added this recipe to your own recipe box."
+        return redirect_to(recipes_path)
+      end
+
   end
 
   def destroy

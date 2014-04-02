@@ -1,5 +1,5 @@
 # My best coffee
 
-To be expanded upon.
+pivotal tracker for this project[https://www.pivotaltracker.com/s/projects/1047508]
 
-It is going to be amazing.
+visit My Best Coffee on heroku[http://mybestcoffee.herokuapp.com/]
