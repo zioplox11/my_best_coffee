@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Gemfile
-ruby "2.1.1"
+ruby "2.1.0"
 
 
 gem 'aws-sdk', '~> 1.38.0'
