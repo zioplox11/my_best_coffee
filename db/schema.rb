@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20140331135903) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name",            default: "No name given"
+    t.string   "name"
     t.string   "full_name"
     t.string   "email"
     t.integer  "admin_status",    default: 0

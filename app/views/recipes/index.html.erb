@@ -51,7 +51,7 @@
   <br>
   <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>
 <% if logged_in? %>
-  <p><%= link_to "Add this recipe to my personal collection", user_recipe_path(current_user, recipe) %></p>
+  <p><%= link_to "Add this recipe to my personal collection", new_recipe_path(current_user, recipe) %></p>
   <% end %>
 
 
