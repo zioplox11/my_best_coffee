@@ -1,6 +1,16 @@
-    <% @steps.each do |step| %>
-    <p><%= step.name %>
-    <%= step.description %>
-    <%= step.total_time %> min to complete</p>
+    <p><%= @step.name %>
     <br>
+    <br>
+    <%= @step.description %>
+    <br>
+    <br>
+    <%= @step.total_time %> min to complete</p>
+    <br>
+    <br>
+    <% @step.appliances.each do |appliance| %>
+    <p> You will need <%= pluralize(@step.appliances.length, "this") %><%= pluralize(@step.appliances.length, "appliance") %> to complete this step: <%=  appliance.name %></p>
+    <br>
+    <br>
+    <p/> Don't own it yet? You can purchase it on Amazon here:&nbsp;&nbsp;&nbsp;<a href="<%= appliance.amazon_purchase_link %>">Buy Now!</a></p>
     <% end %>
+

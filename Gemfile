@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Gemfile
+ruby "2.1.1"
+
 
 gem 'aws-sdk', '~> 1.38.0'
 gem 'httparty'
