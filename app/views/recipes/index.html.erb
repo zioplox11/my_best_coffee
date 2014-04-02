@@ -34,7 +34,7 @@
 
 <% if logged_in? %>
 
-  <p id="p2">You can add a great recipe to your own recipe box by clicking on the "Add to my recipe box" link below each brewing method pictured below.</p>
+  <p id="p2">You can add a great recipe from our "Tested and Approved Best Coffee Recipes" list to your own recipe box -- and modify it over time to your own preferences -- by clicking on the link found below each brewing method pictured below.</p>
 
 <% end %>
 
@@ -52,7 +52,7 @@
   <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>
 
 <% if logged_in? %>
-  <p><%= link_to "Add this recipe to my personal collection", edit_recipe_path(recipe) %></p>
+  <p><%= link_to "Add this approved recipe to my personal collection", edit_recipe_path(recipe) %></p>
  <% end %>
 
 </ul>
