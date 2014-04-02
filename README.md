@@ -13,11 +13,13 @@
 
 - Create account
 - Login/Logout
-- Read existing recipes
-- Create a recipe
-- Add other user's recipe to your recipe box
-- See total time estimate for recipe
-- See appliances, kitchenware, and ingredients for whole recipe
+- Redirect you to an external coffee shop finder site if you want to buy a cup instead of making your own
+- Read existing approved recipes
+- Create a recipe for your own recipe box (will be shareable with other users in future version)
+- Add another user's recipe to your recipe box
+- See a total time estimate for recipe
+- See a 'by-step' time estimate for a recipe (Will have a timer in future versions)
+- See a list of appliances, kitchenware, and ingredients for whole recipe
 - See appliances, kitchenware, and ingredients for each step of a recipe
 - Use a link within the recipe to purchase a needed items on Amazon
 
