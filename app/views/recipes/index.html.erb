@@ -49,8 +49,9 @@
   <a href="/recipes/<%= recipe.id %>"><img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>" width="364" height="364"></a>
   <br>
   <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>
-
-  <p><%= link_to "Add Recipe to my Collection", user_recipe_path(current_user, recipe) %></p>
+<% if !logged_in? %>
+  <p><%= link_to "Add this recipe to my personal collection", user_recipe_path(current_user, recipe) %></p>
+  <% end %>
 
 
 
