@@ -52,7 +52,7 @@
   <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>
 
 <% if logged_in? %>
-  <p><%= link_to "Add this cow recipe to my personal collection", edit_recipe_path(recipe) %></p>
+  <p><%= link_to "Add this recipe to my personal collection", edit_recipe_path(recipe) %></p>
  <% end %>
 
 </ul>
