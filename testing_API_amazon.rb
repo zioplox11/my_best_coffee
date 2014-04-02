@@ -1,26 +1,44 @@
-amazon = "http://webservices.amazon.com/onca/xml?
-Service=AWSECommerceService&AWSAccessKeyId=AMAZON_API_AWS_ACCESS_KEY_ID&Operation=ItemSearch&Keywords=Chemex&SearchIndex=Appliances&&Timestamp=[YYYY-MM-DDThh:mm:ssZ]&Signature=[Request Signature]"
+require 'openssl'
+require 'base64'
+require 'time'
+require 'cgi'
+require 'httparty'
+
+# "http://webservices.amazon.com/onca/xml?
+# Service=AWSECommerceService&
+# AWSAccessKeyId=[AWS Access Key ID]&
+# AssociateTag=[Associate Tag]&
+# Operation=ItemSearch&
+# Condition=All&
+# Availability=Available&
+# SearchIndex=Apparel&
+# Keywords=Shirt&
+# Timestamp=[YYYY-MM-DDThh:mm:ssZ]&
+# Signature=[Request Signature]"
+
+
+associate_id = ENV['AMAZON_ASSOCIATE_ID']
 
 keywords = "Chemex"
 part_of_store = "Appliances"
-
-def amazon_look_up_item(keywords, part_of_store)
+time = Time.now.utc.iso8601
+time_formatted = time.gsub(":", "%3A")
 
 accesskey = "AWSAccessKeyId=" + ENV['AMAZON_API_AWS_ACCESS_KEY_ID']
+associate = "AssociateTag=" + ENV['AMAZON_ASSOCIATE_ID']
 operation = "Operation=" + "ItemSearch"
 keywords = "Keywords=" + keywords
 searchindex = "SearchIndex=" + part_of_store
-timestamp = "Timestamp=" + Time.now.utc.iso8601.gsub(":", "%3A")
-
-first_part_url = "http://webservices.amazon.com/onca/xml?"
+timestamp = "Timestamp=" + time_formatted
 
 main_login_url = "http://webservices.amazon.com/onca/xml?Service=AWSECommerceService"
 
-request_part1 = main_login + "&" + accesskey + "&" + operation + "&" + keywords + "&" + searchindex + "&" + timestamp
+# request_part1 = main_login_url + "&" + accesskey + "&" + operation + "&" + keywords + "&" + searchindex + "&" + timestamp
+request_part1 = [main_login_url, accesskey, associate, operation, keywords, searchindex, timestamp].join("&").gsub(",","%2")
 
-byte_value = {}
 byte_value = {
           "accesskey" => [accesskey, accesskey.bytesize],
+          "associate" => [associate, associate.bytesize],
           "operation"  => [operation, operation.bytesize],
           "keywords"  => [keywords, keywords.bytesize],
           "searchindex"  => [searchindex, searchindex.bytesize],
@@ -29,64 +47,69 @@ byte_value = {
 
 new_array = byte_value.sort_by { |k, v| v[1] }
 
-new_array.map! do |frog| frog[1][0] end
+new_array.map! { |frog| frog[1][0] }
 
 my_crazy_string = new_array.join("&")
 
 #building HMAC crazy secret signature
 secret_id = ENV['AMAZON_SECRET_ACCESS_KEY']
 
-next_step = "GET\nwebservices.amazon.com\n/onca/xml\n#{my_crazy_string}"
+data = "GET\nwebservices.amazon.com\n/onca/xml\n#{my_crazy_string}"
+
+
+
+sha256 = OpenSSL::Digest::SHA256.new
+sig = OpenSSL::HMAC.digest(sha256, secret_id, data)
+signature = Base64.encode64(sig).strip
+
+signature = CGI.escape(signature)
 
 
 
 
 
 
-
-
-
-end
-
-
-AWSAccessKeyId = AKIAIOSFODNN7EXAMPLE
-ItemId = 0679722769
-Operation=ItemLookup
-ResponseGroup=ItemAttributes%2COffers%2CImages%2CReviews
-Service=AWSECommerceService
-Timestamp=2009-01-01T12%3A00%3A00Z
-Version=2009-01-06
-
-Service=AWSECommerceService
-AWSAccessKeyId=AMAZON_API_AWS_ACCESS_KEY_ID
-Operation=ItemSearch
-Keywords=Chemex
-SearchIndex=Appliances
-Timestamp=2014-04-01T01%3A30%3A59Z
+secret_key = '1234567890'
+data = "GET
+webservices.amazon.com
+/onca/xml
+AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&ItemId=0679722769&Operation=ItemLookup&ResponseGroup=ItemAttributes%2COffers%2CImages%2CReviews&Service=AWSECommerceService&Timestamp=2009-01-01T12%3A00%3A00Z&Version=2009-01-06"
 
 
 
 
-end
+final_step = "#{request_part1}&Signature=#{signature}"
+
+# response = HTTParty.get(final_step)
+
+
+url = "http://webservices.amazon.com/onca/xml"
+
+
+"http://webservices.amazon.com/onca/xml?#{query}"
+
+HTTParty.get(url, :query => {
+                    :Service         =>"AWSECommerceService",
+                    :AWSAccessKeyId  =>"AKIAJBYQLHPMVQIZ3DQQ",
+                    :AssociateTag    =>ENV['AMAZON_ASSOCIATE_ID'],
+                    :Operation       =>"ItemSearch",
+                    :Keywords        =>"Chemex",
+                    :SearchIndex     =>"Appliances",
+                    :Timestamp       =>time,
+                    :Signature       =>signature
+                  })
 
 
 
-AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&ItemId=0679722769&Operation=ItemLookup&ResponseGroup=ItemAttributes%2COffers%2CImages%2CReviews&Service=AWSECommerceService&Timestamp=2009-01-01T12%3A00%3A00Z&Version=2009-01-06
+query = HTTParty::HashConversions.to_params({
+                    :Service         =>"AWSECommerceService",
+                    :AWSAccessKeyId  =>"AKIAJBYQLHPMVQIZ3DQQ",
+                    :AssociateTag    =>ENV['AMAZON_ASSOCIATE_ID'],
+                    :Operation       =>"ItemSearch",
+                    :Keywords        =>"Chemex",
+                    :SearchIndex     =>"Appliances",
+                    :Timestamp       =>time,
+                    :Signature       =>signature
+                  })
 
-
-2009-01-01T12:00:00Z
-
-2014-04-01T13:43:18Z
-
-http://webservices.amazon.com/onca/xml?
-Service=AWSECommerceService&AWSAccessKeyId=AMAZON_API_AWS_ACCESS_KEY_ID&Operation=ItemSearch&Keywords=Chemex&SearchIndex=Appliances&&Timestamp=[2014-04-01T01:30:59Z]&Signature=[Request Signature]
-
-2012-05-16T02:17:32Z&Signature=ye5c2jo99cr3%2BPXVkMyXX8vMhTC21UO4XfHpA21%2BUCs%3D
-
-Timestamp=2013-01-30T18%3A09%3A45Z
-
-&Signature=[Request Signature]
-
-  # @recipe.steps.update(amazon_purchase_link: amazon)
-
-  redirect_to(amazon)
+HTTParty.get("http://webservices.amazon.com/onca/xml?#{query}")

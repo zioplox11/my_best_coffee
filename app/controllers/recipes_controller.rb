@@ -3,15 +3,23 @@ class RecipesController < ApplicationController
   def index
     if params[:who_makes_coffee] == "Someone else"
       redirect_to("http://www.findmecoffee.com/")
-    else
-      @recipes = Recipe.all
-      render :index
     end
+
+    @recipes = Recipe.all
+     render :index
+
   end
 
 
   def show
+
     @recipe = Recipe.find_by(id: params[:id])
+    recipe = @recipe.dup
+    if current_user.recipes << recipe
+      flash[:notice] = "You are viewing the main recipe page, #{current_user.name}. You have also added this recipe to your own recipe box."
+    end
+
+
   end
 
 

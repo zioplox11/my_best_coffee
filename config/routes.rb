@@ -31,6 +31,10 @@ end
   resources :comments
 end
 
+  resources   :users do
+    resources :recipes
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

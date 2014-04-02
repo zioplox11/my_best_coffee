@@ -1,22 +1,14 @@
 <% if logged_in? %><br>
-  <% if current_user.recipes.empty? %>
-    <p>You have no recipes in your recipe box.</p>
-  <% else %>
-    <% if current_user.recipes.length == 1 %>
-      <p>You have <%= current_user.recipes.length %> recipe in your recipe box.</p>
-    <% elsif current_user.recipes.length > 1 %>
-      <p>You have <%= current_user.recipes.length %> recipes in your recipe box.</p>
-    <% end %><br>
 
-    <h2><%= current_user.name %>'s Recipe Box
-        <% current_user.recipes.each do |recipe| %>
-          <p>"<%= recipe.title %>": <a href="/recipes/<%= recipe.id %>">Click to load.</a></p>
-          <% end %></h2>
+  <p>You have <%= pluralize(current_user.recipes.length, "recipe") %> in your recipe box.</p>
 
-    <p id="p2">Another option is to create and post a recipe of your own to your recipe box.  <br>
+  <h2><%= current_user.name %>'s Recipe Box
+    <% current_user.recipes.each do |recipe| %>
+       <p>"<%= recipe.title %>": <a href="/recipes/<%= recipe.id %>">Click to load.</a></p>
+    <% end %></h2>
+
+    <p id="p2">You can create and post a new recipe to your recipe box.  <br>
       <%= link_to "Create A New Recipe", new_recipe_path %></p>
-
-  <br><% end %>
 
   <a href="/logout">Click to logout</a><br><br>
 
@@ -42,7 +34,7 @@
 
 <% if logged_in? %>
 
-  <p id="p2">You can add a great recipe to your own recipe box by clicking on any brewing method pictured below.</p>
+  <p id="p2">You can add a great recipe to your own recipe box by clicking on the "Add to my recipe box" link below each brewing method pictured below.</p>
 <% end %>
 
 <% if !logged_in?  %>
@@ -57,6 +49,11 @@
   <a href="/recipes/<%= recipe.id %>"><img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>" width="364" height="364"></a>
   <br>
   <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>
+
+  <p><%= link_to "Add Recipe to my Collection", user_recipe_path(current_user, recipe) %></p>
+
+
+
 </ul>
 
 <br>  <br>
