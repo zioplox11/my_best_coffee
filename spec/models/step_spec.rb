@@ -25,6 +25,18 @@ describe Step do
 
   # it { should have_many(:comments).through(:commentables) }
 
+step = Step.create({name:"Step Two", description: "Place a filter into the Chemex.", total_time: 1
+})
+
+step_name = step.name
+# need to write the update step in the controller into the model
+step.update(name: "Newest Step")
+
+step_name_updated = step.name
+
+  it "should be editable by an approved user" do
+    expect(step_name).not_to eq(step_name_updated)
+  end
 
 
 end
