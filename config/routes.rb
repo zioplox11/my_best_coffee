@@ -5,9 +5,27 @@ MyBestCoffee::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources   :users
+  resources   :users do
+    resources :recipes
+  end
+
   resources   :mybestcoffees
-  resources   :recipes
+
+  resources :recipes do
+    resources :comments, :steps
+  end
+
+  resources   :appliances do
+    resources   :comments
+  end
+
+  resources   :steps do
+    resources   :comments
+  end
+
+  resources :ingredients do
+    resources :comments
+  end
 
 
   get  "/session/new"  => "session#new"
@@ -15,25 +33,13 @@ MyBestCoffee::Application.routes.draw do
   get  "/logout"       => "session#destroy"
 
 
-  resources :appliances do
-  resources :comments
-end
 
-  resources :steps do
-  resources :comments
-end
 
-  resources :recipes do
-  resources :comments, :steps
-end
 
-  resources :ingredients do
-  resources :comments
-end
 
-  resources   :users do
-    resources :recipes
-  end
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
