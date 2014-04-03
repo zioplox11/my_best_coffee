@@ -25,7 +25,7 @@
 
 <br>
 
-<h2> Appliances and kitchenware needed: </h2>
+<h2> <%= pluralize(@recipe.appliances.length, "Kitchenware item") %> needed: </h2>
     <% @recipe.steps.each do |step| %>
       <% step.appliances.each do |appliance| %>
         <p><%= appliance.name %>&nbsp;&nbsp;&nbsp;<a href="<%= appliance.amazon_purchase_link %>">Buy on Amazon Now!</a></p>
@@ -33,7 +33,7 @@
     <% end %>
 <br>
 
-<h2> Ingredients needed: </h2>
+<h2> <%= pluralize(@recipe.ingredients.length, "Ingredient") %> needed: </h2>
     <% @recipe.steps.each do |step| %>
       <% step.ingredients.each do |ingredient| %>
         <p id="p2"><%= ingredient.name %>&nbsp;&nbsp;&nbsp;<a href="<%= ingredient.amazon_purchase_link %>">Buy on Amazon Now!</a></p>

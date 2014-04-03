@@ -9,8 +9,14 @@
 <%= link_to "Edit this step", edit_recipe_step_path(@recipe, @step) %>
 
     <% @step.appliances.each do |appliance| %>
-    <p> You need <%= pluralize(@step.appliances.length, "this") %><%= pluralize(@step.appliances.length, "appliance") %> to complete this step:<br> <%=  appliance.name %></p>
+    <p> You need <%= pluralize(@step.appliances.length, "kitchenware item") %> to complete this step:<br> <%=  appliance.name %></p><br>
         <p/> Don't own it yet? You can purchase it on Amazon:&nbsp;&nbsp;&nbsp;<a href="<%= appliance.amazon_purchase_link %>">Buy Now!</a></p>
+        <br>
+    <% end %>
+
+    <% @step.ingredients.each do |ingredient| %>
+    <p> You need <%= pluralize(@step.ingredients.length, "ingredient") %> to complete this step:<br> <%=  ingredient.name %></p><br>
+        <p/> Don't own it yet? You can purchase it on Amazon:&nbsp;&nbsp;&nbsp;<a href="<%= ingredient.amazon_purchase_link %>">Buy Now!</a></p>
         <br>
     <% end %>
 
