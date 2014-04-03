@@ -20,8 +20,11 @@ require 'httparty'
 
 
 associate_id = ENV['AMAZON_ASSOCIATE_ID']
+access_id = ENV['AMAZON_API_AWS_ACCESS_KEY_ID']
+secret_id = ENV['AMAZON_SECRET_ACCESS_KEY']
 keywords = "Chemex"
 part_of_store = "Appliances"
+search_operation = "ItemSearch"
 
 # Amazon requires UTC time code in iso8601 standard form that is formatted properly for sending via HTTP request (no commas or colons)
 # from WIKI: English  CUT Coordinated Universal Time
@@ -32,19 +35,21 @@ part_of_store = "Appliances"
 time = Time.now.utc.iso8601
 time_formatted = time.gsub(":", "%3A")
 
-accesskey = "AWSAccessKeyId=" + ENV['AMAZON_API_AWS_ACCESS_KEY_ID']
+#create the main body of the API request
+main_login_url = "http://webservices.amazon.com/onca/xml?Service=AWSECommerceService"
+
+accesskey = "AWSAccessKeyId=" + access_id
 associate = "AssociateTag=" + associate_id
-operation = "Operation=" + "ItemSearch"
+operation = "Operation=" + search_operation
 keywords = "Keywords=" + keywords
 searchindex = "SearchIndex=" + part_of_store
 timestamp = "Timestamp=" + time_formatted
 
-main_login_url = "http://webservices.amazon.com/onca/xml?Service=AWSECommerceService"
-
-#create the main body of the API request
 request_part1 = [main_login_url, accesskey, associate, operation, keywords, searchindex, timestamp].join("&").gsub(",","%2")
 
-#amazon requires a multi-step security encoded signature at the end of every API request
+
+
+#next, amazon requires a multi-step security encoded signature at the end of every API request
 
 # sort items in API request by byte-size (as specified by amazon).
 # Question for Phil -- maybe we should try largest to smallest?
@@ -73,13 +78,9 @@ byte_ordered_string = new_array.join("&")
 # /onca/xml
 # AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&ItemId=0679722769&Operation=ItemLookup&ResponseGroup=ItemAttributes%2COffers%2CImages%2CReviews&Service=AWSECommerceService&Timestamp=2009-01-01T12%3A00%3A00Z&Version=2009-01-06"
 
-secret_id = ENV['AMAZON_SECRET_ACCESS_KEY']
-
 data = "GET\nwebservices.amazon.com\n/onca/xml\n#{byte_ordered_string}"
 
-
 # encode using SHA256. SHA-2 is a set of cryptographic hash functions designed by the U.S. National Security Agency (NSA). SHA-256 is a novel hash functions computed with 32-bit words.
-
 sha256 = OpenSSL::Digest::SHA256.new
 sig = OpenSSL::HMAC.digest(sha256, secret_id, data)
 signature = Base64.encode64(sig).strip
