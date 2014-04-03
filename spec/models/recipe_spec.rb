@@ -58,7 +58,7 @@ total_recipe_time_based_on_steps = my_recipe.total_step_time
     expect(num_steps2).to eq(num_steps + 2)
   end
 
-  it "should have a intitial total recipe time estimated that is overwritten by the actual step by step recipe time as user adds recipe steps" do
+  it "should have a intitial user estimated totalrecipe time that is overwritten by the actual step by step recipe time as user adds recipe steps with their individual times" do
     expect(total_recipe_time_initial).to eq(13 + total_recipe_time_based_on_steps)
 
   end

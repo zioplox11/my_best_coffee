@@ -55,14 +55,19 @@ class RecipesController < ApplicationController
 
     # if logged_in? && current_user.id = @recipe.user.id
 
-    @recipe = Recipe.find_by(id: params[:id], user_id: params[:user_id])
+    # @recipe = Recipe.find_by(id: params[:id], user_id: params[:user_id])
+
     if logged_in? && recipe = Recipe.find_by(id: params[:id])
-      steps = recipe.steps
-      recipe = recipe.dup
-      recipe.steps << steps
-      if (current_user.recipes << recipe)
-        flash[:notice] = "You are currently viewing the ORIGINAL recipe page, #{current_user.name}. You have ALSO added this recipe to your own recipe box."
-        return redirect_to(recipe)
+      original_steps = recipe.steps
+      my_recipe = recipe.dup
+      my_recipe.save
+      original_steps.each do
+        |step| my_recipe.steps << step.dup
+        my_recipe.save
+      end
+      if (current_user.recipes << my_recipe && recipe.steps << original_steps)
+        flash[:notice] = "You are currently viewing your copy of the original recipe, #{current_user.name}. You have successfully added this recipe to your recipe box."
+        return redirect_to(my_recipe)
       end
     end
 

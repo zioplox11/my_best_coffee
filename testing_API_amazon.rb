@@ -16,7 +16,6 @@ require 'httparty'
 # Timestamp=[YYYY-MM-DDThh:mm:ssZ]&
 # Signature=[Request Signature]"
 
-
 associate_id = ENV['AMAZON_ASSOCIATE_ID']
 
 keywords = "Chemex"
@@ -33,7 +32,6 @@ timestamp = "Timestamp=" + time_formatted
 
 main_login_url = "http://webservices.amazon.com/onca/xml?Service=AWSECommerceService"
 
-# request_part1 = main_login_url + "&" + accesskey + "&" + operation + "&" + keywords + "&" + searchindex + "&" + timestamp
 request_part1 = [main_login_url, accesskey, associate, operation, keywords, searchindex, timestamp].join("&").gsub(",","%2")
 
 byte_value = {
@@ -47,14 +45,14 @@ byte_value = {
 
 new_array = byte_value.sort_by { |k, v| v[1] }
 
-new_array.map! { |frog| frog[1][0] }
+new_array.map! { |byte_ordered| byte_ordered[1][0] }
 
-my_crazy_string = new_array.join("&")
+byte_ordered_string = new_array.join("&")
 
 #building HMAC crazy secret signature
 secret_id = ENV['AMAZON_SECRET_ACCESS_KEY']
 
-data = "GET\nwebservices.amazon.com\n/onca/xml\n#{my_crazy_string}"
+data = "GET\nwebservices.amazon.com\n/onca/xml\n#{byte_ordered_string}"
 
 
 
@@ -67,14 +65,11 @@ signature = CGI.escape(signature)
 
 
 
-
-
 secret_key = '1234567890'
 data = "GET
 webservices.amazon.com
 /onca/xml
 AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&ItemId=0679722769&Operation=ItemLookup&ResponseGroup=ItemAttributes%2COffers%2CImages%2CReviews&Service=AWSECommerceService&Timestamp=2009-01-01T12%3A00%3A00Z&Version=2009-01-06"
-
 
 
 

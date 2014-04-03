@@ -30,7 +30,7 @@ list = User.show_all_names_and_emails
 test_user = User.create({ name: "test", email: "test@tester.com", password: "password", password_confirmation: "password", admin_status: 5})
 list2 = User.show_all_names_and_emails
 
-  it "should return a list of all users and their emails" do
+  it "should return an up-to-date list of all users and their emails" do
     expect(list2.count).to eq(list.count + 2)
 
   end
