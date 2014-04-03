@@ -51,10 +51,11 @@ class RecipesController < ApplicationController
 
   def edit
 
+    # in the future, edits will be allowed on ones own recipes and not anyone else's recipes -- unless your admin status permits it.
     # @recipe = Recipe.find_by(id: params[:id])
-
-    # if logged_in? && current_user.id = @recipe.user.id
-
+    # if logged_in? && current_user.id == @recipe.user.id
+    # @recipe = Recipe.find_by(id: params[:id], user_id: params[:user_id])
+    # else if logged_in? && current_user.id != @recipe.user.id && current_user.admin_status >= 3
     # @recipe = Recipe.find_by(id: params[:id], user_id: params[:user_id])
 
     if logged_in? && recipe = Recipe.find_by(id: params[:id])
@@ -66,7 +67,7 @@ class RecipesController < ApplicationController
         my_recipe.save
       end
       if (current_user.recipes << my_recipe && recipe.steps << original_steps)
-        flash[:notice] = "You are currently viewing your copy of the original recipe, #{current_user.name}. You have successfully added this recipe to your recipe box."
+        flash[:notice] = "You are currently viewing your copy of the original recipe, #{current_user.name}. You have successfully added this recipe to your recipe box and can modify it over time as you see fit."
         return redirect_to(my_recipe)
       end
     end

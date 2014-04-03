@@ -20,6 +20,12 @@ associate_id = ENV['AMAZON_ASSOCIATE_ID']
 
 keywords = "Chemex"
 part_of_store = "Appliances"
+# Amazon requires UTC time code in iso8601 standard form that is formatted properly for sending via HTTP request (no commas or colons)
+# from WIKI: English  CUT Coordinated Universal Time
+# French  TUC Temps Universel Coordonné
+# compromise  UTC unofficial English: "Universal Time Coordinated"; unofficial French: "Universel Temps Coordonné"
+# ISO8601: issued by the International Organization for Standardization (ISO) and was first published in 1988. The purpose of this standard is to provide an unambiguous and well-defined method of representing dates and times, so as to avoid misinterpretation of numeric representations of dates and times, particularly when data is transferred between countries with different conventions for writing numeric dates and times.
+
 time = Time.now.utc.iso8601
 time_formatted = time.gsub(":", "%3A")
 
