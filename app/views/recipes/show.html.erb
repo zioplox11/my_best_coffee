@@ -2,6 +2,8 @@
 
   <a href="/logout">Click to logout</a><br><br>
 
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe, current_user) %>
+
 <% end %>
 
 <%= link_to "Back to My Best Coffee recipes page", recipes_path %>

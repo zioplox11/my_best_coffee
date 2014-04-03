@@ -6,6 +6,7 @@
 
 <%= link_to "Back to recipe page", recipe_path(@recipe) %>
 <br><br>
+<%= link_to "Edit this step", edit_recipe_step_path(@recipe, @step) %>
 
     <% @step.appliances.each do |appliance| %>
     <p> You need <%= pluralize(@step.appliances.length, "this") %><%= pluralize(@step.appliances.length, "appliance") %> to complete this step:<br> <%=  appliance.name %></p>
@@ -25,6 +26,8 @@
     <br>
     <p>Start a stopwatch (counts upward).</p>    <p>Start a timer (counts downward).</p>
     <br>
+
+
 
 
 

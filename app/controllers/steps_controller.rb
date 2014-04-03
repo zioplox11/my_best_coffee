@@ -13,6 +13,17 @@ class StepsController < ApplicationController
     @step = Step.new()
   end
 
+  def edit
+    @step = Step.find_by(id: params[:id], recipe_id: params[:recipe_id])
+  end
+
+
+  def update
+    @step = Step.find_by(id: params[:id])
+    @step.update(step_params)
+    redirect_to recipes_path
+  end
+
   def create
     @step = Step.new(step_params)
 
