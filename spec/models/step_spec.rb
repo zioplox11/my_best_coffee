@@ -25,4 +25,6 @@ describe Step do
 
   # it { should have_many(:comments).through(:commentables) }
 
+
+
 end

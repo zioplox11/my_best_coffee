@@ -40,7 +40,6 @@ class User < ActiveRecord::Base
     users.each do |user|
       name_and_emails << user.name
       name_and_emails << user.email
-      display = name_and_emails.join(", ")
     end
     name_and_emails
   end
