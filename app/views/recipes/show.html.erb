@@ -43,11 +43,11 @@
 <br>
 <h2> Directions </h2>
 
-
 <% @recipe.steps.each do |step| %>
   <p><%= step.name %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= step.total_time %> min to complete
   <br>
   <strong><%= step.description %></strong></p>
+
 
   <%= link_to "Full Preparation Details and Timer", recipe_step_path(@recipe, step) %><br>
   <br>

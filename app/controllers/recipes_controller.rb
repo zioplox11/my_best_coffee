@@ -14,6 +14,8 @@ class RecipesController < ApplicationController
   def show
 
     @recipe = Recipe.find_by(id: params[:id])
+    # need to sort recipe steps in an intelligent way to deal with adding new steps and changes the name of the step ... currently edits are pushing any newly edited steps to the bottom of recipe view.
+
 
   end
 

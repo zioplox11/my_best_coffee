@@ -4,6 +4,11 @@ require 'time'
 require 'cgi'
 require 'httparty'
 
+# http://docs.aws.amazon.com/AWSECommerceService/latest/DG/rest-signature.html
+
+# 'Anatomy of a REST request'
+# http://docs.aws.amazon.com/AWSECommerceService/latest/DG/AnatomyOfaRESTRequest.html
+
 # amazon requires the following information in an API product request
 
 # "http://webservices.amazon.com/onca/xml?
