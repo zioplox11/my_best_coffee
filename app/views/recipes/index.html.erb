@@ -1,6 +1,16 @@
 <% if logged_in? %><br>
 
+  <a href="/logout">Click to logout</a><br><br>
+
+  <h2>Ok, let's make sure you get very your best cup of coffee<% if !logged_in? %>.<% else %>, <%= current_user.name %>.<% end %> </h2>
+
+  <% if logged_in? %>
+<p>Click <a href="/mybestcoffees">here</a> to begin a guided journey.</p>
+<br><br>
+<% end %>
+
   <p>You have <%= pluralize(current_user.recipes.length, "recipe") %> in your recipe box.</p>
+  <br>
 
   <h2><%= current_user.name %>'s Recipe Box
     <% current_user.recipes.each do |recipe| %>
@@ -9,12 +19,8 @@
 
     <p id="p2">You can create and post a new recipe to your recipe box.  <br>
       <%= link_to "Create A New Recipe", new_recipe_path %></p>
-
-  <a href="/logout">Click to logout</a><br><br>
-
+<br>
 <% end %>
-
-<h2>Ok, let's make sure you get very your best cup of coffee<% if !logged_in? %>.<% else %>, <%= current_user.name %>.<% end %> </h2>
 
 <% if !logged_in? %>
 <p id="p2">If you would like us to tailor a perfect recipe for you, including helping you shop for the items you need and showing you step-by-step how to prepare your coffee, you need to log in to your My Best Coffee account.</p>
@@ -25,11 +31,6 @@
 <p id="p2">Or you can <a href="/users/new">click here to sign up</a> for your own free My Best Coffee user account.</p>
 </br></br>
 
-<% end %>
-
-<% if logged_in? %>
-<p>Click <a href="/mybestcoffees">here</a> to begin a guided journey.</p>
-<br><br>
 <% end %>
 
 <% if logged_in? %>

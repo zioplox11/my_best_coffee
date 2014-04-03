@@ -1,4 +1,10 @@
-<h2><a href="/recipes/">Home</a></h2>
+<% if logged_in? %>
+
+  <a href="/logout">Click to logout</a><br><br>
+
+<% end %>
+
+<%= link_to "Back to My Best Coffee recipe page", recipes_path %>
 
 <h1>Recipe: <%= @recipe.title %></h1>
 <h2>Total time to prepare and serve: <%= @recipe.total_step_time %> minutes</h2>
@@ -24,15 +30,18 @@
       <% end %>
     <% end %>
 <br>
-<h2> Directions </h2>
 
-<h2> Ingredients </h2>
+<h2> Ingredients needed: </h2>
     <% @recipe.steps.each do |step| %>
       <% step.ingredients.each do |ingredient| %>
         <p id="p2"><%= ingredient.name %>&nbsp;&nbsp;&nbsp;<a href="<%= ingredient.amazon_purchase_link %>">Buy on Amazon Now!</a></p>
       <% end %>
     <% end %>
 <br>
+<br>
+<h2> Directions </h2>
+
+
 <% @recipe.steps.each do |step| %>
   <p><%= step.name %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= step.total_time %> min to complete
   <br>

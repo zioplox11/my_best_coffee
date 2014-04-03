@@ -6,6 +6,7 @@ class StepsController < ApplicationController
 
   def show
     @step = Step.find_by(id: params[:id], recipe_id: params[:recipe_id])
+    @recipe = Recipe.find_by(id: params[:recipe_id])
   end
 
   def new

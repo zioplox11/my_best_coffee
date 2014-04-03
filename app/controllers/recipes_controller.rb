@@ -52,7 +52,9 @@ class RecipesController < ApplicationController
   def edit
 
     if logged_in? && recipe = Recipe.find_by(id: params[:id])
+      steps = recipe.steps
       recipe = recipe.dup
+      recipe.steps << steps
       if (current_user.recipes << recipe)
         flash[:notice] = "You are currently viewing the ORIGINAL recipe page, #{current_user.name}. You have ALSO added this recipe to your own recipe box."
         return redirect_to(recipe)
