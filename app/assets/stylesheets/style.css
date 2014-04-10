@@ -74,27 +74,23 @@ body {
   position: relative;
   width: 980px;
   margin: auto;
-  background-color: #C5E6DC;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 400;
   font-size: 26px;
+  overflow: auto;
 }
 
 #first_interest {
-  position: absolute;
-  width: 325px;
-  left: 0px;
-  top: 0px;
+  display: inline-block;
+  width: 322px;
   margin: 0 auto;
   background-color: rgba(200,214,154,.3);
   padding: 0px 15px 15px 15px;
 }
 
 #second_interest {
-  position: absolute;
-  width: 325px;
-  left: 327px;
-  top: 0px;
+  display: inline-block;
+  width: 322px;
   margin: 0 auto;
   background-color: rgba(248,247,220, .2);
   padding: 0px 15px 15px 15px;
@@ -102,15 +98,27 @@ body {
 }
 
 #third_interest {
-  position: absolute;
-  width: 325px;
-  left: 655px;
-  top: 0px;
+  display: inline-block;
+  width: 322px;
   margin: 0 auto;
   background-color: rgba(83,76,72,.1);
   padding: 0px 15px 15px 15px;
 
 }
+
+#footer {
+  width: 980px;
+  margin: auto;
+}
+
+
+.footer {
+  display: inline-block;
+  margin-top: 6px;
+  margin-right: 20px;
+  padding: 0;
+}
+
 
 img {
   margin: 0px 0px 0px -3px;
@@ -216,6 +224,7 @@ ul {
 
 li {
   line-height: 1.3em;
+  display: block;
 }
 
 
