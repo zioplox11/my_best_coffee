@@ -1,0 +1,18 @@
+def my_map(items)
+  amt_items = items.size()
+  counter = 0
+  new_arry = []
+  while counter < amt_items
+    current_item = items[counter]
+    new_arry << yield(current_item)
+    counter = counter + 1
+  end
+  return new_arry
+
+end
+
+
+
+
+
+
