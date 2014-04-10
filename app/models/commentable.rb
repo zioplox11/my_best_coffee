@@ -6,7 +6,7 @@
 #
 
 class Commentable < ActiveRecord::Base
-  # belongs_to :comments
+  # belongs_to :comments, polymorphic: true
   # belongs_to :user
 
 end

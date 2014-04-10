@@ -14,7 +14,9 @@ class StepsController < ApplicationController
   end
 
   def edit
+    if logged_in? && recipe = Recipe.find_by(user_id: params[:user_id])
     @step = Step.find_by(id: params[:id], recipe_id: params[:recipe_id])
+    end
   end
 
 

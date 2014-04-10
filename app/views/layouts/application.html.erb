@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html>
-<style type="text/css"></style>
 <head>
   <title>My Best Coffee</title>
-
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
 
+<div id="wrapper">
+  <%= render "layouts/header" %>
 
+  <div id="container">
+    <%= yield %>
+  </div>
 
-<div class='container'>
-<header>
-
-<% if flash[:notice] %>
-  <h1><%= flash[:notice] %></h1>
-<% end %>
-
-  <%= yield %>
-</header>
+  <%= render "layouts/footer" %>
 </div>
 
 </body>

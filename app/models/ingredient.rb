@@ -38,6 +38,8 @@ class Ingredient < ActiveRecord::Base
   validates(:is_bean,     { :presence     => true })
   validates(:description,     { :presence     => true })
 
+
+
 end
 
 

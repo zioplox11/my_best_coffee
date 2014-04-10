@@ -28,4 +28,30 @@ class Step < ActiveRecord::Base
   validates(:total_time,     { :presence     => true })
   validates(:description,     { :presence     => true })
 
+
+
+
+  def appliance_deep_dup()
+
+    new_appliances = self.appliances.collect do |appliance|
+      my_appliance = appliance.dup()
+      my_appliance.save
+    end
+
+    return new_appliances
+
+  end
+
+  def ingredient_deep_dup()
+
+    new_ingredients = self.ingredients.collect do |ingredient|
+      my_ingredient = ingredient.dup()
+      my_ingredient.save
+    end
+
+    return new_ingredients
+
+  end
+
+
 end

@@ -6,8 +6,9 @@
 
 <%= link_to "Back to recipe page", recipe_path(@recipe) %>
 <br><br>
+<% if logged_in? %>
 <%= link_to "Edit this step", edit_recipe_step_path(@recipe, @step) %>
-
+<% end %>
     <% @step.appliances.each do |appliance| %>
     <p> You need <%= pluralize(@step.appliances.length, "kitchenware item") %> to complete this step:<br> <%=  appliance.name %></p><br>
         <p/> Don't own it yet? You can purchase it on Amazon:&nbsp;&nbsp;&nbsp;<a href="<%= appliance.amazon_purchase_link %>">Buy Now!</a></p>

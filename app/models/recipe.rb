@@ -1,3 +1,5 @@
+require_relative ("../models/step.rb")
+
 # == Schema Information
 #
 # Table name: recipes
@@ -49,6 +51,39 @@ class Recipe < ActiveRecord::Base
       return total_step_time
     end
   end
+
+
+  def steps_deep_dup()
+
+    new_steps = self.steps.collect do |step|
+      my_step = step.dup()
+      my_step.save
+    end
+
+    return new_steps
+
+  end
+
+
+  def dup_recipe()
+    dup_steps = self.steps_deep_dup
+    new_appliances = nil
+    new_steps = nil
+    self.steps.each do |step|
+      new_appliances = step.appliances_deep_dup
+      new_ingredients = step.ingredients_deep_dup
+    end
+    my_recipe = self.dup
+    my_recipe.save
+    my_recipe.steps.ingredients << new_ingredients
+    my_recipe.steps.appliances << new_appliances
+
+    return my_recipe
+
+  end
+
+
+
 
   # def self.admin_approved_recipes
   #     recipes = User.all.select do |recipe|

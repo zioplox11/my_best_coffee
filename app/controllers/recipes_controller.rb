@@ -61,14 +61,36 @@ class RecipesController < ApplicationController
     # @recipe = Recipe.find_by(id: params[:id], user_id: params[:user_id])
 
     if logged_in? && recipe = Recipe.find_by(id: params[:id])
-      original_steps = recipe.steps
-      my_recipe = recipe.dup
-      my_recipe.save
-      original_steps.each do
-        |step| my_recipe.steps << step.dup
-        my_recipe.save
-      end
-      if (current_user.recipes << my_recipe && recipe.steps << original_steps)
+      my_recipe = recipe.dup_recipe()
+
+      # original_steps = recipe.steps
+      # # original_appliances = recipe.steps.appliances
+      # # original_ingredients = recipe.steps.ingredients
+      # my_recipe = recipe.dup
+      # my_recipe.save
+      # # original_appliances.each do
+      # #   |appliance| my_recipe.steps.appliances << appliance.dup
+      # #   my_recipe.save
+      # # end
+      # # original_ingredients.each do
+      # #   |ingredient| my_recipe.ingredients << ingredient.dup
+      # #   my_recipe.save
+      # # end
+      # original_steps.each do
+      #   |step| my_recipe.steps << step.dup
+      #   my_recipe.save
+      #   appliances.each do
+      #   |appliance| my_recipe.step.appliances << appliance.dup
+      #   my_recipe.save
+      #   end
+      #   ingredients.each do
+      #   |ingredient| my_recipe.step.ingredients << ingredient.dup
+      #   my_recipe.save
+      #   end
+      # end
+
+
+      if (current_user.recipes << my_recipe )
         flash[:notice] = "You are currently viewing your copy of the original recipe, #{current_user.name}. You have successfully added this recipe to your recipe box and can modify it over time as you see fit."
         return redirect_to(my_recipe)
       end

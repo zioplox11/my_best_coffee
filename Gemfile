@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 # Gemfile
 ruby "2.1.0"
 
-
+#wrapper for amazon product api
+gem 'amazon_product'
 gem 'aws-sdk', '~> 1.38.0'
 gem 'httparty'
 
@@ -54,22 +55,20 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
-# rspec for rails. set up with `rails g rpsec:install`
-# https://github.com/rspec/rspec-rails
-  gem 'rspec-rails'
-# sets rails console to open in pry instead of irb
-# https://github.com/rweng/pry-rails
-  gem 'pry-rails'
-# command line tool. run `$ annotate`. annotates models with schema data
-# https://github.com/ctran/annotate_models
-  gem 'annotate', '>=2.6.0'
-# one liners to test common rails functionality
-# https://github.com/thoughtbot/shoulda-matchers
-  gem 'shoulda-matchers'
-# support with creating ERD drawings
   gem 'rails-erd', '~> 1.1.0'
-# improves my ability to annotate my model.
-
-
-
+  gem 'launchy'
+  gem 'capybara'
+  gem 'pry-rails'
+  gem 'rspec'
+# rspec for rails. set up with `rails g rpsec:install`
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-bundler', require: false
+  gem 'terminal-notifier-guard'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'rubocop'
+  gem 'annotate', '>=2.6.0'
 end
+

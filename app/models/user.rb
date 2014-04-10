@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :appliances, through: :inventories
   has_many :mybestcoffees
   # has_many :comments, :as => :commentable
+
   has_many :comments
 
 
@@ -43,6 +44,18 @@ class User < ActiveRecord::Base
     end
     name_and_emails
   end
+
+
+  # def recipes_deep_dup()
+
+  #   new_recipes = self.recipes.collect do |recipe|
+  #     my_recipe = recipe.dup()
+  #     my_recipe.save
+  #   end
+
+  #   return new_recipes
+
+  # end
 
 
 end
