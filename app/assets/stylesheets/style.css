@@ -165,7 +165,6 @@ img:hover
 {
 opacity:0.55;
 filter:alpha(opacity=55); /* For IE8 and earlier */
-
 }
 
 
@@ -194,6 +193,8 @@ h2 {
 .interest_title {
   font-size: 25px;
   letter-spacing: .6px;
+  margin-top: 17px;
+  margin-bottom: 17px;
 }
 
 
