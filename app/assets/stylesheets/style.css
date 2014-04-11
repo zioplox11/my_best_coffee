@@ -50,10 +50,20 @@ body {
   width: 980px;
   top: 0px;
   left: 0px;
-  background-color: #3B2B20;
-  margin-bottom: -20px;
+  background-color: rgba(87,50,66,1);
+  margin-bottom: 0px;
+  font-family: 'Buda', cursive;
+  font-weight: lighter;
 }
 
+#horizontal_divider {
+  position: relative;
+  height: 4px;
+  width: 980px;
+  background-color: gray;
+  margin-top: -20px;
+
+}
 
 #login_sign_up {
   position: relative;
@@ -63,51 +73,77 @@ body {
   display: inline;
 }
 
+
 #welcome {
   position: static;
   display: block;
   text-align: center;
 }
 
+
 #container {
   position: relative;
   width: 980px;
   margin: auto;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Buda", cursive, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 400;
   font-size: 26px;
   overflow: auto;
 }
 
+
+
+#interest {
+  position: relative;
+  overflow: auto;
+
+}
+
+#interest h2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 21px;
+  letter-spacing: .1em;
+}
+
+
 #first_interest {
   display: inline-block;
+  position: relative;
   width: 322px;
   margin: 0 auto;
   background-color: rgba(200,214,154,.3);
   padding: 0px 15px 15px 15px;
+  overflow: auto;
 }
+
 
 #second_interest {
   display: inline-block;
+  position: relative;
   width: 322px;
   margin: 0 auto;
   background-color: rgba(248,247,220, .2);
   padding: 0px 15px 15px 15px;
+  overflow: auto;
 
 }
 
 #third_interest {
   display: inline-block;
+  position: relative;
   width: 322px;
   margin: 0 auto;
   background-color: rgba(83,76,72,.1);
   padding: 0px 15px 15px 15px;
-
+  overflow: auto;
 }
 
 #footer {
   width: 980px;
   margin: auto;
+  font-family: 'Special Elite', cursive;
+  font-weight: lighter;
 }
 
 
@@ -131,7 +167,9 @@ img {
 
 
 a:link, a:visited, a:active { color: rgba(132,121,111,.9); text-decoration: none;}
- a:hover { color: rgba(210,60,90,.8); }
+ a:hover { color: rgba(133,42,27,1); }
+
+
 
 
 .header a:link, a:visited, a:active {
@@ -139,13 +177,13 @@ a:link, a:visited, a:active { color: rgba(132,121,111,.9); text-decoration: none
   text-decoration: none;
 }
 
-.header a:hover { color: rgba(210,60,90,.8); }
+.header a:hover { color: #3B2B20; }
 
 .interest a:link, a:visited, a:active {
   color: black;
 }
 
-.interest a:hover { color: rgba(210,60,90,.8); }
+.interest a:hover { color: rgba(133,42,27,1); }
 
 
 
@@ -170,7 +208,6 @@ filter:alpha(opacity=55); /* For IE8 and earlier */
 #header h1, #header h2, #header h3 {
 /*  color: rgba(255,200,30,.9);*/
   color: rgba(255,232,202,1);
-
   letter-spacing: .5em;
   padding: 20px;
 }
@@ -178,6 +215,7 @@ filter:alpha(opacity=55); /* For IE8 and earlier */
 #header h1 {
   padding: 4px;
   letter-spacing: .4em;
+  margin-top: -10px;
   margin-bottom: -10px;
 }
 
@@ -187,6 +225,15 @@ h2 {
   text-transform: none;
   font-size: 22px;
   font-weight: 500;
+}
+
+#header h2 {
+  text-decoration: none;
+  text-align: right;
+  font-size: 16px;
+  padding: 12px;
+  margin-top: 0px;
+  letter-spacing: .14em;
 }
 
 
@@ -216,6 +263,7 @@ p {
 }
 
 ul {
+  position: relative;
   list-style-type: none;
   font-size: 16px;
   padding: 0px;
@@ -226,7 +274,7 @@ ul {
 
 li {
   line-height: 1.3em;
-  display: block;
+  display: inline-block;
 }
 
 
