@@ -279,6 +279,11 @@ li {
   display: inline-block;
 }
 
+#interest li {
+  line-height: 1.3em;
+  display: list-item;
+}
+
 
 .main_page {
   font-size: 14px;
