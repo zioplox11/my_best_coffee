@@ -40,14 +40,14 @@ body {
 }
 
 #wrapper {
-  width: 980px;
+  width: 960px;
   margin: 0 auto;
 }
 
 
 #header {
   position: relative;
-  width: 980px;
+  width: 960px;
   top: 0px;
   left: 0px;
   background-color: rgba(87,50,66,1);
@@ -59,7 +59,7 @@ body {
 #horizontal_divider {
   position: relative;
   height: 4px;
-  width: 980px;
+  width: 960px;
   background-color: gray;
   margin-top: -20px;
 
@@ -83,15 +83,13 @@ body {
 
 #container {
   position: relative;
-  width: 980px;
+  width: 960px;
   margin: auto;
   font-family: "Buda", cursive, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 400;
   font-size: 26px;
   overflow: auto;
 }
-
-
 
 #interest {
   position: relative;
@@ -110,10 +108,10 @@ body {
 #first_interest {
   display: inline-block;
   position: relative;
-  width: 322px;
+  width: 315px;
   margin: 0 auto;
   background-color: rgba(200,214,154,.3);
-  padding: 0px 15px 15px 15px;
+  padding: 0px 12px 12px 12px;
   overflow: auto;
 }
 
@@ -121,10 +119,10 @@ body {
 #second_interest {
   display: inline-block;
   position: relative;
-  width: 322px;
+  width: 315px;
   margin: 0 auto;
   background-color: rgba(248,247,220, .2);
-  padding: 0px 15px 15px 15px;
+  padding: 0px 12px 12px 12px;
   overflow: auto;
 
 }
@@ -132,15 +130,15 @@ body {
 #third_interest {
   display: inline-block;
   position: relative;
-  width: 322px;
+  width: 315px;
   margin: 0 auto;
   background-color: rgba(83,76,72,.1);
-  padding: 0px 0px 15px 15px;
+  padding: 0px 0px 12px 12px;
   overflow: auto;
 }
 
 #footer {
-  width: 980px;
+  width: 960px;
   margin: auto;
   font-family: 'Cabin Sketch', cursive;
   font-weight: lighter;
