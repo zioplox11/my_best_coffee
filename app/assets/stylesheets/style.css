@@ -108,7 +108,7 @@ body {
 #first_interest {
   display: inline-block;
   position: relative;
-  width: 315px;
+  width: 316px;
   margin: 0 auto;
   background-color: rgba(200,214,154,.3);
   padding: 0px 12px 12px 12px;
@@ -160,8 +160,8 @@ img {
   border-style:solid;
   border-radius: 10px;
   border: 0px rgba(210,170,90,.8);
-  width: 300px;
-  height: 300px;
+  width: 296px;
+  height: 296px;
 }
 
 
