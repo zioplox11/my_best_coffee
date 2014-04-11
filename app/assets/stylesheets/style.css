@@ -142,7 +142,7 @@ body {
 #footer {
   width: 980px;
   margin: auto;
-  font-family: 'Rye', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-weight: lighter;
 }
 
@@ -215,11 +215,12 @@ filter:alpha(opacity=55); /* For IE8 and earlier */
 
 #header h1 {
   padding: 4px;
-  letter-spacing: .2em;
+  letter-spacing: .3em;
   margin-top: -10px;
   margin-bottom: -10px;
   font-family: "Rye", cursive;
   font-size: 58px;
+  color: rgba(240,248,245,1);
 }
 
 
