@@ -94,6 +94,7 @@ body {
 #interest {
   position: relative;
   overflow: auto;
+  background-color: rgba(242,246,233,1);
 
 }
 
@@ -110,7 +111,7 @@ body {
   position: relative;
   width: 316px;
   margin: 0 auto;
-  background-color: rgba(200,214,154,.3);
+  background-color: rgba(227,237,215,1);
   padding: 0px 12px 12px 12px;
   overflow: auto;
 }
@@ -132,7 +133,7 @@ body {
   position: relative;
   width: 315px;
   margin: 0 auto;
-  background-color: rgba(83,76,72,.1);
+  background-color: rgba(224,228,220,1);
   padding: 0px 0px 12px 12px;
   overflow: auto;
 }
