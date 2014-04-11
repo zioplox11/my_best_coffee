@@ -95,6 +95,7 @@ body {
   position: relative;
   overflow: auto;
   background-color: rgba(242,246,233,1);
+  margin-bottom: -10px;
 
 }
 
@@ -140,16 +141,22 @@ body {
 
 #footer {
   width: 960px;
+  position: relative;
   margin: auto;
+  height: 28px;
   font-family: 'Rye', cursive;
   font-weight: lighter;
+  background-color: rgba(158 , 211, 255 ,.1);
+
+  margin-top: 0px;
 }
 
 
 .footer {
   display: inline-block;
-  margin-top: 0px;
+  margin-top: 6px;
   margin-right: 30px;
+  margin-left: 10px;
   padding: 0;
   font-size: 14px;
 }
