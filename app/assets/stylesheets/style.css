@@ -58,11 +58,10 @@ body {
 
 #horizontal_divider {
   position: relative;
-  height: 4px;
+  height: 6px;
   width: 960px;
   background-color: rgba(95,96,110,1);
   margin-top: -20px;
-
 }
 
 #login_sign_up {
@@ -146,9 +145,18 @@ body {
   height: 28px;
   font-family: 'Emilys Candy', cursive;
   font-weight: lighter;
-  background-color: rgba(158 , 211, 255 ,.1);
-
+  background-color: rgba(16 ,135 ,144 ,.2);
   margin-top: 0px;
+}
+
+#horizontal_divider_footer {
+  position: relative;
+  height: 1px;
+  width: 960px;
+  background-color: rgba(194 , 102, 0 , 1);
+
+  margin: 0 auto;
+  margin-top: 0;
 }
 
 
@@ -292,7 +300,6 @@ li {
   display: list-item;
   color: red;
 }
-
 
 .main_page {
   font-size: 14px;
