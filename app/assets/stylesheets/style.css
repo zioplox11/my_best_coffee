@@ -36,7 +36,8 @@ BASE STYLE
 -----------------------------------------------------------------------------*/
 
 body {
-  background-color: rgba(10,140,90,0.06);
+/*  background-color: rgba(10,140,90,0.06);*/
+  background-color: black;
 }
 
 #wrapper {
@@ -164,7 +165,7 @@ body {
   height: 30px;
   font-family: 'Emilys Candy', cursive;
   font-weight: lighter;
-  background-color: rgba(16 ,135 ,144 ,.2);
+  background-color: rgba(194,  224, 224  ,1);
   margin-top: 10px;
 }
 
