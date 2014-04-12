@@ -107,13 +107,19 @@ body {
   letter-spacing: .1em;
 }
 
-#invisible_horizontal_divider {
+#invisible_horizontal_divider_h {
   width: 960px;
-  height: 20px;
+  height: 12px;
   position: relative;
   margin: 0 auto;
 }
 
+#invisible_horizontal_divider_f {
+  width: 960px;
+  height: 6px;
+  position: relative;
+  margin: 0 auto;
+}
 
 #first_interest {
   display: inline-block;
