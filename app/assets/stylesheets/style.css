@@ -178,8 +178,8 @@ background-size: cover;
   background-color: rgba(194,  224, 224  ,1);
   margin-top: 10px;
   margin-bottom: 40px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+/*  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;*/
 }
 
 #horizontal_divider_footer {
@@ -214,17 +214,20 @@ img {
 
 
 a:link, a:visited, a:active { color: rgba(132,121,111,.9); text-decoration: none;}
+
  a:hover { color: rgba(133,42,27,1); }
-
-
-
 
 .header a:link, a:visited, a:active {
   color: rgba(223,229,227,.75);
   text-decoration: none;
+  font-size: 19px;
 }
 
-.header a:hover { color: rgba(202, 202, 173, 1); }
+.header a:hover {
+  color: rgba(202, 202, 173, 1);
+  font-size: 19px;
+
+}
 
 .interest a:link, a:visited, a:active {
   color: black;
