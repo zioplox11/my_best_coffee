@@ -1,7 +1,6 @@
 /* Box Model Hack */
 * {
-     -moz-box-sizing: border-box; /* Firexfox */
-     -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+     -moz-box-sizing: border-box; /* Firexfox */ /* Safari/Chrome/iOS/Android */
      box-sizing: border-box; /* IE */
 }
 
@@ -46,6 +45,7 @@ background-size: cover;
 #wrapper {
   width: 960px;
   margin: 0 auto 0 auto;
+  height: 900px;
 }
 
 
@@ -63,7 +63,6 @@ background-size: cover;
   height: 110px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
 }
 
 #horizontal_divider {
@@ -71,7 +70,7 @@ background-size: cover;
   height: 3px;
   width: 960px;
   background-color: rgba(95,96,110,1);
-  margin-top: -20px;
+  margin-top: -22px;
 }
 
 #login_sign_up {
@@ -87,7 +86,6 @@ background-size: cover;
   position: static;
   display: block;
   text-align: center;
-
 }
 
 
@@ -104,6 +102,7 @@ background-size: cover;
 #interest {
   position: relative;
   overflow: auto;
+  height: 750px;
 /*  background-color: rgba(242,246,233,1);*/
   margin-bottom: 0px;
 /*  border-radius: 10px;*/
@@ -115,6 +114,7 @@ background-size: cover;
   margin-bottom: 12px;
   font-size: 21px;
   letter-spacing: .1em;
+
 }
 
 #invisible_horizontal_divider_h {
@@ -140,7 +140,8 @@ background-size: cover;
   padding: 0px 12px 12px 12px;
   overflow: auto;
   margin-bottom: -10px;
-
+  height: 750px;
+  border-radius: 2px;
 }
 
 
@@ -153,8 +154,8 @@ background-size: cover;
   padding: 0px 12px 12px 12px;
   overflow: auto;
   margin-bottom: -10px;
-/*  border-radius: 10px;*/
-
+  border-radius: 2px;
+  height: 750px;
 }
 
 #third_interest {
@@ -166,6 +167,8 @@ background-size: cover;
   padding: 0px 0px 12px 12px;
   overflow: auto;
   margin-bottom: -10px;
+  height: 750px;
+  border-radius: 2px;
 }
 
 #footer {
@@ -176,10 +179,10 @@ background-size: cover;
   font-family: 'Emilys Candy', cursive;
   font-weight: lighter;
   background-color: rgba(194,  224, 224  ,1);
-  margin-top: 10px;
+  margin-top: 12px;
   margin-bottom: 40px;
-/*  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;*/
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 
 #horizontal_divider_footer {
