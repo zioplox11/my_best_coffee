@@ -73,5 +73,5 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
-gem 'httparty'
+
 
