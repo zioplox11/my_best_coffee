@@ -55,23 +55,23 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
-  gem 'rails-erd', '~> 1.1.0'
   gem 'launchy'
   gem 'capybara'
   gem 'pry-rails'
   gem 'rspec'
-# rspec for rails. set up with `rails g rpsec:install`
   gem 'rspec-rails'
   gem 'guard'
-  gem 'guard-rspec'
+  gem 'guard-rspec', require: false
   gem 'guard-bundler', require: false
   gem 'terminal-notifier-guard'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'rubocop'
   gem 'annotate', '>=2.6.0'
+  gem 'rails-erd'
+  gem 'jasmine'
+  gem 'selenium-webdriver'
 end
 
-
-
+gem 'httparty'
 
