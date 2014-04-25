@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/zioplox11/my_best_coffee.svg?branch=master)](https://travis-ci.org/zioplox11/my_best_coffee)
+
+
+
+
 # My best coffee V0.1.0
 
 #### Dedicated to getting you your very best cup of coffee, every time you stop in.
